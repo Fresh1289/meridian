@@ -37,7 +37,9 @@ You run Claude Code, Codex, Gemini CLI — maybe 3-10 agents in parallel across 
 
 You read output from one agent. Copy context to another. Decide who works on what. Resolve conflicts. Relay messages. Manage state. The agents are fast. You are the slowest link in the chain.
 
-As agent teams scale, this gets worse. More tabs, more context-switching, more dropped balls. The human communication bus doesn't scale.
+Some tools claim to solve this with CLI wrappers, YAML configs, and buzzword architectures. They'll tell you they have "Q-learning routers" and "Byzantine consensus" and "neural self-optimization." But when you actually try to use them, nothing happens — because the agents are just state objects in memory, not real processes doing real work.
+
+**Meridian takes a different approach.** Every agent is a real subprocess. Every message is actually delivered. Every node on the topology is a live process you can watch, talk to, pause, or kill. No theater. No simulated orchestration. Just agents that actually run.
 
 ---
 
@@ -47,7 +49,7 @@ Meridian is a native desktop app that removes you from the middle.
 
 You talk to **one agent** — the **Manager**. Manager handles everything else: analyzing your request, deploying the right team, routing work between agents, and reporting back when it's done.
 
-You see everything happening in real time on a **visual topology**. One chat. Full visibility. No context-switching.
+You see everything happening in real time on a **visual topology**. One chat. Full visibility. No context-switching. No YAML. No config files. No learning a CLI.
 
 <br />
 
@@ -59,6 +61,7 @@ You see everything happening in real time on a **visual topology**. One chat. Fu
 | You resolve merge conflicts | Manager handles git |
 | Context lost across sessions | Scribe remembers everything |
 | Agents don't know about each other | Full inter-agent communication |
+| Reading docs to configure agent YAML | Describe your project in English |
 
 <br />
 
@@ -74,7 +77,15 @@ You see everything happening in real time on a **visual topology**. One chat. Fu
 
 Real-time org chart of your agent team rendered on Canvas 2D. Each node shows the agent's role, status, and model. Connection lines animate when agents communicate — idle dash crawl, active packet animation. Top-down layout with Manager at the center, leads below, sub-agents beneath.
 
-**No other tool in the market has this.**
+This isn't a text log you scroll through. It's a live, visual map of your entire agent team — what they're doing, who they're talking to, and whether they're healthy. **No other multi-agent tool has this.** Not as a CLI flag. Not as a dashboard. Not as an afterthought. It's the core of the experience.
+
+<br />
+
+### Real Agents, Not State Objects
+
+Every agent in Meridian is a **real CLI subprocess** — a full Claude Code, Codex, or Gemini process with its own working directory, config, and lifecycle. When an agent "writes code," it's actually writing code. When it "runs tests," tests actually run.
+
+This matters more than you think. Some orchestrators manage agents as in-memory objects — they track state, update JSON files, and claim "100+ agents" while nothing actually executes. Meridian spawns real processes, monitors them with health checks, and restarts them with exponential backoff if they crash. You can watch the process count in Activity Monitor.
 
 <br />
 
@@ -84,15 +95,15 @@ Real-time org chart of your agent team rendered on Canvas 2D. Each node shows th
   <img src="assets/screenshot-dashboard.png" width="100%" alt="Manager Chat" />
 </p>
 
-Talk to Manager in natural language. Manager dispatches to the right agents, collects results, and reports back. GitHub Copilot-style input with model selector, file attachments, and markdown rendering.
+Talk to Manager in natural language. Manager dispatches to the right agents, collects results, and reports back. GitHub Copilot-style input with model selector, file attachments, and full markdown rendering.
 
-Every relay between agents is visible. You're never in the dark about what's happening.
+Every relay between agents is visible. You see exactly what Manager told the Builder, what the Builder responded, and what QA found. No black box. No "trust the swarm."
 
 <br />
 
 ### Dynamic Team Composition
 
-There is no static agent list. **Manager is the only default agent.** When you describe your project, Manager assembles the right team:
+There is no static agent list. No YAML files to configure. No "agent definitions" to write. **Manager is the only default agent.** When you describe your project, Manager assembles the right team:
 
 | Project Type | Team Deployed |
 |:---|:---|
@@ -101,15 +112,15 @@ There is no static agent list. **Manager is the only default agent.** When you d
 | Quick fix | Manager + Builder |
 | Full-stack | Manager + 2 Builders + Designer + QA + Scribe |
 
-Agents appear on the topology as they're deployed. Manager can add, remove, or reassign agents mid-project based on what's needed.
+Agents appear on the topology as they're deployed. Manager can add, remove, or reassign agents mid-project based on what's needed. You don't pre-configure your team — you describe your goal and the team materializes.
 
 <br />
 
 ### Shared Structured Memory (Scribe)
 
-Scribe runs silently in the background, reading **all** communication between agents. It logs everything to the project filesystem — decisions, code changes, conversations, corrections.
+Scribe runs silently in the background, reading **all** communication between agents. It logs everything to the project filesystem — decisions, code changes, conversations, corrections. Human-readable markdown, not opaque vector databases.
 
-When Manager forgets context from 50 messages ago, Scribe surfaces it instantly. It's your project's institutional knowledge — the thing that makes agent teams actually work across long sessions.
+When Manager forgets context from 50 messages ago, Scribe surfaces it instantly. It's your project's institutional knowledge — the thing that makes agent teams actually work across long sessions. And because it's plain text on disk, you can read it yourself, search it with grep, or sync it to Obsidian. No proprietary binary format. No "memory engine" you can't inspect.
 
 <br />
 
@@ -117,7 +128,7 @@ When Manager forgets context from 50 messages ago, Scribe surfaces it instantly.
 
 Not locked to one provider. Run **Claude Code**, **OpenAI Codex**, **Gemini CLI**, or any CLI-based coding agent.
 
-Mix models across agents — Opus for Manager, Sonnet for Builders, GPT-4 for review. The right model for each job, not a one-size-fits-all lock-in.
+Mix models across your team — Opus for Manager, Sonnet for Builders, GPT-4 for review. The right model for each job, not a one-size-fits-all lock-in. Most multi-agent tools only work with one provider. Meridian works with any CLI agent that reads stdin and writes stdout.
 
 <br />
 
@@ -132,6 +143,16 @@ Intervene anytime:
 - Override Manager's routing
 
 Manager rewrites agent configs on the fly based on your feedback. The agents adapt to you, not the other way around.
+
+Autonomous agent swarms sound cool in demos. In practice, you want a kill switch. Meridian gives you one — plus full visibility into what's happening before you need to use it.
+
+<br />
+
+### Messages That Actually Arrive
+
+Meridian's communication layer is built on **53 typed IPC channels** between the Electron main process and the renderer. When Manager sends a task to a Builder, it arrives. When a sub-agent reports to its lead, the lead gets it. When a lead compiles results and sends them to Manager, Manager receives them.
+
+This sounds basic — and it should be. But inter-agent communication is where most orchestrators fall apart. Meridian has been through 14 end-to-end tests, including a 20-agent stress test with hierarchical routing (sub-agents → leads → Manager). Messages don't get lost. Agents don't talk past each other. The communication bus works because it was tested relentlessly, not theorized about.
 
 <br />
 
@@ -149,7 +170,7 @@ Run your app without leaving Meridian. Full shell access, embedded in the app. S
 
 Mission control meets Linear. Near-black base, agent-specific accent colors, glassmorphic panels, precise typography. Information-dense but clean. Every pixel considered.
 
-Built with the same attention to craft as the tools you already use — GitHub, Linear, Vercel, Raycast.
+Built with the same attention to craft as the tools you already use — GitHub, Linear, Vercel, Raycast. Not a CLI with a `--pretty` flag. Not a web dashboard bolted on after the fact. A native desktop app designed from day one to be the interface.
 
 <br />
 
@@ -163,7 +184,7 @@ Built with the same attention to craft as the tools you already use — GitHub, 
   <img src="assets/screenshot-login.png" width="720" alt="Sign in" />
 </p>
 
-GitHub OAuth or email. One click.
+GitHub OAuth or email. One click. No config files. No environment variables. No `npx init`.
 
 ### 2. Connect your AI provider
 
@@ -171,7 +192,7 @@ GitHub OAuth or email. One click.
   <img src="assets/screenshot-onboarding-cli.png" width="720" alt="Connect Claude" />
 </p>
 
-Meridian detects your Claude CLI automatically. Optionally add an API key for pay-per-token billing.
+Meridian detects your Claude CLI automatically. Optionally add an API key for pay-per-token billing. Two options, one screen, done.
 
 ### 3. Describe your project
 
@@ -179,7 +200,7 @@ Meridian detects your Claude CLI automatically. Optionally add an API key for pa
   <img src="assets/screenshot-onboarding-project.png" width="720" alt="Create Project" />
 </p>
 
-Name it, describe what you're building, pick a directory. Meridian scaffolds the workspace with `.meridian/`, `.agents/`, and a `CLAUDE.md`.
+Name it, describe what you're building, pick a directory. Meridian scaffolds the workspace with `.meridian/`, `.agents/`, and a `CLAUDE.md`. No YAML agent definitions to write. No topology configs to learn. Just tell it what you're building.
 
 ### 4. Manager assembles the team
 
@@ -187,7 +208,7 @@ Name it, describe what you're building, pick a directory. Meridian scaffolds the
   <img src="assets/screenshot-chat.png" width="100%" alt="10 agents spawned" />
 </p>
 
-Manager reads your description and deploys the right agents — Frontend Lead, Backend Lead, QA, Designer, Scribe, and sub-agents under each lead. You watch the org chart populate in real time.
+Manager reads your description and deploys the right agents — Frontend Lead, Backend Lead, QA, Designer, Scribe, and sub-agents under each lead. Each one is a real CLI process with its own working directory. You watch the org chart populate in real time.
 
 ### 5. Watch, iterate, ship
 
@@ -225,11 +246,13 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 └──────────────────────────────────────────────────────┘
 ```
 
-- **Electron** — native desktop performance, direct CLI process spawning
+- **Electron** — native desktop performance, direct CLI process spawning via `child_process`
 - **React 19 + TypeScript + Tailwind CSS 4** — modern UI with domain-specific Zustand stores
 - **Canvas 2D** — lightweight topology rendering (not WebGL — small bundle, fast paint)
-- **53 IPC channels** — typed bridge between renderer and main process
-- **Each agent is a separate CLI process** — isolated, killable, restartable, with its own config
+- **53 IPC channels** — typed, validated bridge between renderer and main process
+- **Each agent is a real CLI subprocess** — isolated working directory, killable, restartable, with health monitoring and exponential backoff
+
+No in-memory agent simulation. No JSON file state management pretending to be orchestration. Real processes, real IPC, real results.
 
 <br />
 
@@ -237,15 +260,17 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 
 ## How Meridian Compares
 
-|  | Meridian | Claude Code Teams | Claude Squad | Opcode | Agentrooms | Ruflo |
-|:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| Multi-agent orchestration | **Yes** | Experimental | No | No | Limited | Yes |
-| Visual topology | **Yes** | No | No | No | No | No |
-| Dynamic team composition | **Yes** | No | No | No | No | Manual YAML |
-| Shared memory (Scribe) | **Yes** | No | No | No | No | Vector-based |
-| Model-agnostic | **Yes** | No | No | Claude only | Limited | Claude only |
-| Native desktop app | **Yes** | CLI | TUI | Tauri | Web | CLI |
-| Human-in-the-loop | **Yes** | Limited | Yes | Yes | Limited | Minimal |
+|  | Meridian | Claude Code Teams | Claude Squad | Opcode | Agentrooms |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| Multi-agent orchestration | **Yes** | Experimental | No | No | Limited |
+| Visual topology | **Yes** | No | No | No | No |
+| Dynamic team composition | **Yes** | No | No | No | No |
+| Real agent subprocesses | **Yes** | Yes | Yes | Yes | Partial |
+| Shared memory (Scribe) | **Yes** | No | No | No | No |
+| Model-agnostic | **Yes** | No | No | Claude only | Limited |
+| Native desktop app | **Yes** | CLI | TUI | Tauri | Web |
+| Human-in-the-loop | **Yes** | Limited | Yes | Yes | Limited |
+| Tested at 20 agents | **Yes** | No | No | No | No |
 
 <br />
 
@@ -267,6 +292,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 - [x] Hierarchical team routing (sub-agents report to leads)
 - [x] Self-healing agents (retry, backoff, model fallback)
 - [x] Context rotation (auto session dump at 85% usage)
+- [x] 14 end-to-end tests passed, including 20-agent stress test
 
 ### Coming Soon
 - [ ] Multi-computer orchestration (run agents across multiple machines)
@@ -333,7 +359,7 @@ Cloud sync. Team features.
 <p align="center">
   <code>476+ commits · 119 source files · 53 IPC channels · 56 React components</code>
   <br />
-  <code>5 domain stores · 14 live tests passed · 20-agent stress test cleared</code>
+  <code>5 domain stores · 14 end-to-end tests · 20-agent stress test cleared</code>
   <br /><br />
   <strong>Stop being the bottleneck.</strong>
   <br /><br />
