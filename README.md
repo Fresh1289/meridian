@@ -361,7 +361,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 
 ### 🔜 Coming Soon
 - [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
-- [ ] 🌐 Multi-computer orchestration (run agents across multiple machines)
+- [ ] 🌐 Multi-machine orchestration — cluster your Mac Minis, distribute agents across machines (think [exo](https://github.com/exo-explore/exo) but for coding agents)
 - [ ] 📚 Obsidian vault integration for project memory
 - [ ] 🔀 Git integration UI (commit, push, pull from within app)
 - [ ] 🪟 Windows + Linux support
@@ -385,8 +385,7 @@ Everything on a single machine. **No limits. No trials. No feature gates.**
 Full orchestration, all agents, all models, all features.
 
 ### 💎 Pro — coming later
-Multi-computer orchestration. Run agents across your laptop and build server simultaneously.
-Cloud sync. Team features.
+Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server into one fleet — distribute agents across hardware like exo does for inference, but for coding. Cloud sync. Team features.
 
 > *We believe the single-machine experience should be completely free. You only pay when you need to scale beyond one computer.*
 
