@@ -44,7 +44,7 @@
 
 ## 😤 The Problem
 
-You run Claude Code, Codex, Gemini CLI — maybe 3-10 agents in parallel across terminal tabs. Each one is powerful on its own.
+You run Claude Code in 3-10 terminal tabs in parallel. Each session is powerful on its own.
 
 > **But you are the bottleneck.**
 
@@ -106,7 +106,7 @@ This isn't a text log you scroll through. It's a **live, visual map** of your en
 
 ### ⚡ Real Agents, Not State Objects
 
-Every agent in Meridian is a **real CLI subprocess** — a full Claude Code, Codex, or Gemini process with its own working directory, config, and lifecycle.
+Every agent in Meridian is a **real CLI subprocess** — a full Claude Code process with its own working directory, config, and lifecycle.
 
 | | Other Tools | Meridian |
 |:---|:---|:---|
@@ -158,16 +158,17 @@ When Manager forgets context from 50 messages ago, Scribe surfaces it instantly.
 
 <br />
 
-### 🔓 Model-Agnostic
+### 🔀 Mix Models Per Agent
 
-Not locked to one provider. Run **Claude Code**, **OpenAI Codex**, **Gemini CLI**, or any CLI-based coding agent.
+Meridian currently runs on **Claude Code** — the most capable coding agent available. You can assign different Claude models to different agents:
 
-Mix models across your team:
 - 🟣 **Opus** for Manager (planning + routing)
 - 🔵 **Sonnet** for Builders (fast code generation)
-- 🟢 **GPT-4** for QA (diverse review perspective)
+- 🟡 **Haiku** for Scribe (lightweight logging)
 
-The right model for each job, not a one-size-fits-all lock-in. Most multi-agent tools only work with one provider. Meridian works with **any CLI agent** that reads stdin and writes stdout.
+The right model for each job. Manager gets the big brain, builders get the fast one, utility agents get the cheap one. You control this per-agent from the settings panel.
+
+> 🔮 **Coming soon:** Multi-provider support — run Codex, Gemini CLI, or any CLI agent alongside Claude. The architecture is designed for it.
 
 <br />
 
@@ -299,7 +300,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 │  │              🤖 Agent Processes                      │ │
 │  │                                                      │ │
 │  │  Manager · Builder · Designer · QA · Scribe          │ │
-│  │  (Claude Code / Codex / Gemini / Any CLI)            │ │
+│  │  (Claude Code — more providers coming soon)          │ │
 │  └──────────────────────────────────────────────────────┘ │
 └──────────────────────────────────────────────────────────┘
 ```
@@ -329,7 +330,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 | 🎯 Dynamic team composition | ✅ | ❌ | ❌ | ❌ | ❌ |
 | ⚡ Real agent subprocesses | ✅ | ✅ | ✅ | ✅ | ⚠️ Partial |
 | 🧠 Shared memory (Scribe) | ✅ | ❌ | ❌ | ❌ | ❌ |
-| 🔓 Model-agnostic | ✅ | ❌ | ❌ | 🔒 Claude only | ⚠️ Limited |
+| 🔀 Per-agent model selection | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 🖥️ Native desktop app | ✅ | CLI | TUI | Tauri | Web |
 | 🎛️ Human-in-the-loop | ✅ | ⚠️ Limited | ✅ | ✅ | ⚠️ Limited |
 | 🧪 Tested at 20 agents | ✅ | ❌ | ❌ | ❌ | ❌ |
@@ -346,7 +347,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 - [x] 🗺️ Visual agent topology with real-time status
 - [x] 🎯 Dynamic team composition via Manager
 - [x] 🧠 Scribe agent for shared structured memory
-- [x] 🔓 Multi-model support (Claude, Codex, any CLI agent)
+- [x] 🔀 Per-agent model selection (Opus, Sonnet, Haiku per agent)
 - [x] ✨ 7-phase animated onboarding flow
 - [x] 🔐 Supabase auth (GitHub OAuth + email)
 - [x] 💬 Chat persistence and auto-scroll
@@ -359,6 +360,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 - [x] 🧪 14 end-to-end tests passed, including 20-agent stress test
 
 ### 🔜 Coming Soon
+- [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
 - [ ] 🌐 Multi-computer orchestration (run agents across multiple machines)
 - [ ] 📚 Obsidian vault integration for project memory
 - [ ] 🔀 Git integration UI (commit, push, pull from within app)
@@ -432,6 +434,94 @@ Cloud sync. Team features.
 > **Note:** Meridian is currently unsigned (Apple Developer Program enrollment pending).
 > On first launch: **Right-click the app → Open → Click "Open"** in the dialog.
 > Or run: `xattr -cr /Applications/Meridian.app`
+
+<br />
+
+---
+
+<br />
+
+## ❓ FAQ
+
+<details>
+<summary><strong>What AI providers does Meridian support?</strong></summary>
+<br />
+
+Currently, Meridian runs on **Claude Code** (Anthropic). You can assign different Claude models (Opus, Sonnet, Haiku) to different agents. Multi-provider support (Codex, Gemini CLI, etc.) is on the roadmap — the architecture is built to support any CLI-based agent.
+
+</details>
+
+<details>
+<summary><strong>Do I need a Claude API key?</strong></summary>
+<br />
+
+No. Meridian works with the **Claude CLI** using your Max plan credits — no API key required. If you prefer pay-per-token billing, you can optionally add an API key during onboarding.
+
+</details>
+
+<details>
+<summary><strong>How many agents can I run at once?</strong></summary>
+<br />
+
+Meridian has been stress-tested with **20 concurrent agents** in a full hierarchical setup (leads, sub-agents, scribe). In practice, most projects use 5-12 agents. Each agent is a real CLI process, so your limit is your machine's resources and API rate limits.
+
+</details>
+
+<details>
+<summary><strong>Is this open source?</strong></summary>
+<br />
+
+The source code is currently private. This repo is a showcase of what Meridian is and does. We're evaluating open-source options for post-1.0.
+
+</details>
+
+<details>
+<summary><strong>What operating systems are supported?</strong></summary>
+<br />
+
+**macOS (Apple Silicon)** today. Windows and Linux support is on the roadmap.
+
+</details>
+
+<details>
+<summary><strong>How is this different from just running multiple Claude Code sessions?</strong></summary>
+<br />
+
+When you run multiple Claude Code sessions yourself, **you** are the communication bus — reading output from one, pasting context into another, deciding who does what. Meridian replaces you in that role. Manager handles all inter-agent routing, Scribe maintains shared memory, and the topology gives you real-time visibility into what every agent is doing. You go from being the bottleneck to being the overseer.
+
+</details>
+
+<details>
+<summary><strong>How much does it cost to run?</strong></summary>
+<br />
+
+Meridian itself is **free**. Your cost is the AI usage — same as running Claude Code directly. A typical 10-agent session building a medium-sized feature costs roughly what 10 individual Claude Code sessions would cost. The difference is Meridian makes those 10 sessions work together instead of in isolation.
+
+</details>
+
+<details>
+<summary><strong>Can I customize how agents behave?</strong></summary>
+<br />
+
+Yes. Each agent has its own config that Manager can rewrite on the fly. Tell Manager "I don't like how the designer writes CSS" and it will update the designer's system prompt immediately. You can also edit agent configs directly from the settings panel.
+
+</details>
+
+<details>
+<summary><strong>What happens when an agent crashes?</strong></summary>
+<br />
+
+Meridian has **self-healing built in**. If an agent crashes, it automatically restarts with exponential backoff. If it keeps failing, Manager is notified and can reassign the work. Health monitoring runs continuously — you'll see the agent's status change on the topology in real time.
+
+</details>
+
+<details>
+<summary><strong>Why Electron and not a web app?</strong></summary>
+<br />
+
+Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly on your machine. A web app can't do that — it would need a local server or daemon, adding complexity. Electron gives us native process spawning, direct filesystem access, and a polished desktop experience in one package.
+
+</details>
 
 <br />
 
