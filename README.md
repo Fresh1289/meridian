@@ -13,7 +13,7 @@
 <p align="center">
   <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.0-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
-  <a href="https://forms.gle/PLACEHOLDER"><img src="https://img.shields.io/badge/🔔_Join_Waitlist-→-f59e0b?style=for-the-badge" /></a>
+  <a href="https://tally.so/r/EkLvbX"><img src="https://img.shields.io/badge/🔔_Join_Waitlist-→-f59e0b?style=for-the-badge" /></a>
   &nbsp;
   <a href="#-features"><img src="https://img.shields.io/badge/Features-→-4f46e5?style=for-the-badge" /></a>
 </p>
@@ -424,7 +424,7 @@ Cloud sync. Team features.
 </p>
 
 <p align="center">
-  <a href="https://forms.gle/PLACEHOLDER"><img src="https://img.shields.io/badge/🔔_Join_the_Waitlist-Get_notified_on_launch-f59e0b?style=for-the-badge" /></a>
+  <a href="https://tally.so/r/EkLvbX"><img src="https://img.shields.io/badge/🔔_Join_the_Waitlist-Get_notified_on_launch-f59e0b?style=for-the-badge" /></a>
 </p>
 
 <p align="center">
