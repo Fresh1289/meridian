@@ -321,6 +321,86 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 
 <br />
 
+## 🧬 Built on the Best of Open Source
+
+We studied **80+ open-source projects** across the multi-agent ecosystem — orchestration frameworks, memory systems, task engines, terminal emulators, visualization libraries, and production Electron apps. Then we took the best ideas and rebuilt them into Meridian's architecture.
+
+Not forked. Not wrapped. **Studied, understood, and reimplemented** to fit a native desktop orchestrator.
+
+| What We Built | Inspired By | What We Learned |
+|:---|:---|:---|
+| 🗄️ SQLite persistence + WAL mode | **LangGraph** checkpointing | State machine snapshots survive crashes — flat JSON doesn't |
+| 📬 Typed protocol messages | **Overstory** SQLite mail system | ACID message delivery in ~1ms beats parsing free text |
+| 📊 DAG task queue | **p-queue** + **toposort** | ~500 lines beats deploying Redis. Local-only, zero infra |
+| 🔁 Retry + dead letter queue | **Temporal**, **Inngest** | Exponential backoff + jitter is the universal standard for a reason |
+| 🩺 Agent health scoring | **Overstory** tiered monitoring | Mechanical heartbeat → AI-assisted → patrol. Three tiers, not one |
+| 🔭 Embedded observability | **OpenLLMetry** (OpenTelemetry) | Traces to local SQLite. Per-agent cost tracking. 2-hour integration |
+| 📐 Topology layout | **elkjs** Sugiyama algorithm | Proper hierarchical layout handles any team shape automatically |
+| 🔀 Git integration | **simple-git** + **Aider** patterns | Atomic `git apply` for multi-file agent changes. All-or-nothing commits |
+| 🖥️ PTY management | **Tabby** three-layer system | Backpressure (`ackData`) prevents memory explosion at 10+ agents |
+| 💥 Crash recovery | **VS Code** / **Chrome** patterns | Crash flag on startup, delete on clean exit, safe mode if flag persists |
+| 🔄 Plan-Execute-Observe-Replan | **Magentic-One** (Microsoft) | Explicit state machine > ad-hoc dispatch. Agents recover from failures |
+
+### Projects we studied deeply
+
+<details>
+<summary><strong>Multi-agent orchestration</strong> — CrewAI, AutoGen/AG2, LangGraph, MetaGPT, Magentic-One, OpenAI Swarm, ChatDev, Overstory, ComposioHQ, AgentScope, Swarms, Pydantic AI, Dify, MassGen, Microsoft Agent Framework</summary>
+<br />
+
+We analyzed how each framework handles routing, memory, error recovery, and inter-agent communication. LangGraph's checkpoint pattern and Overstory's SQLite mail were the standout ideas. Most frameworks manage agents as in-memory objects — we went the opposite direction with real subprocesses, which ComposioHQ and Overstory validated as the right call.
+
+</details>
+
+<details>
+<summary><strong>Memory systems</strong> — Mem0, Letta (MemGPT), Zep, Hindsight, Zikkaron, Cortex, Memvid, ChromaDB, LanceDB, Qdrant</summary>
+<br />
+
+Mem0's multi-tenant scoping and Letta's two-tier memory (RAM-like core + disk-like archival) shaped our Scribe architecture. Zikkaron's hippocampal replay for surviving context compaction is on our v2 roadmap. For v1, we chose human-readable markdown on disk over opaque vector databases — you can grep your project memory.
+
+</details>
+
+<details>
+<summary><strong>Task engines</strong> — Temporal, Inngest, BullMQ, Hatchet, embedded-queue, node-persistent-queue, liteque, dagx, toposort</summary>
+<br />
+
+Every production queue uses the same retry pattern: exponential backoff with jitter and a dead letter queue. We adopted that universal standard. For DAG resolution, toposort + p-queue gives us dependency ordering and concurrency control in ~500 lines — no Redis, no cloud, no external infra.
+
+</details>
+
+<details>
+<summary><strong>Terminal & Electron</strong> — Tabby, Wave Terminal, Hyper, VS Code, Bitwarden, Insomnia, electron-store</summary>
+<br />
+
+Tabby's three-layer PTY system (manager → wrapper → data queue with backpressure) prevents memory explosion when running 10+ agents. VS Code's MessagePort IPC and crash recovery patterns informed our stability architecture. We're an Electron app that takes production patterns from apps with millions of users.
+
+</details>
+
+<details>
+<summary><strong>Visualization & code gen</strong> — React Flow, Cytoscape.js, G6, elkjs, dagre, Sigma.js, vis-network, Cline, Aider, Continue.dev, bolt.diy, simple-git</summary>
+<br />
+
+We stayed with raw Canvas 2D (validated by the research — lighter than WebGL for 20-50 nodes) but adopted elkjs for proper Sugiyama hierarchical layout. Aider's git-first approach (auto-commit with meaningful messages, atomic multi-file apply) shaped our git integration.
+
+</details>
+
+<details>
+<summary><strong>Observability</strong> — OpenLLMetry, Langfuse, Phoenix, AgentOps, Helicone</summary>
+<br />
+
+OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, zero telemetry collection, 2-hour integration. We get correlation IDs, per-agent cost tracking, and full trace visibility without shipping your data anywhere.
+
+</details>
+
+<br />
+
+> **Every project listed above is MIT, Apache 2.0, BSD, or similarly permissive licensed.** We didn't copy code — we studied architectures, understood the patterns, and rebuilt them from scratch for a native desktop orchestrator. That's how good software gets built. Standing on the shoulders of the open-source community. 🙏
+
+<br />
+
+---
+
+<br />
+
 ## 📊 How Meridian Compares
 
 |  | Meridian | Claude Code Teams | Claude Squad | Opcode | Agentrooms |
