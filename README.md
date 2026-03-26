@@ -1,8 +1,6 @@
 <p align="center">
-  <img src="assets/meridian-icon.svg" width="128" height="128" alt="Meridian" />
+  <img src="assets/meridian-wordmark.svg" width="360" alt="Meridian" />
 </p>
-
-<h1 align="center">Meridian</h1>
 
 <p align="center">
   <strong>The multi-agent orchestration platform for AI-native developers.</strong>
