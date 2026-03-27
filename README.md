@@ -21,8 +21,9 @@
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.0.0-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_(Apple_Silicon)-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
-  <img src="https://img.shields.io/badge/commits-476+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
+  <img src="https://img.shields.io/badge/commits-512+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
+  <img src="https://img.shields.io/badge/IPC_channels-107-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
   <img src="https://img.shields.io/badge/Electron-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
 </p>
 
@@ -191,7 +192,7 @@ Manager rewrites agent configs on the fly based on your feedback. **The agents a
 
 ### 📡 Messages That Actually Arrive
 
-Meridian's communication layer is built on **53 typed IPC channels** between the Electron main process and the renderer.
+Meridian's communication layer is built on **107 typed IPC channels** between the Electron main process and the renderer.
 
 ```
 Sub-agent → Lead → Manager → Lead → Sub-agent
@@ -438,12 +439,24 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 - [x] 🩺 Self-healing agents (retry, backoff, model fallback)
 - [x] 🔄 Context rotation (auto session dump at 85% usage)
 - [x] 🧪 14 end-to-end tests passed, including 20-agent stress test
+- [x] 🗄️ SQLite persistence — projects, agents, chat, sessions survive restarts
+- [x] 📬 SQLite mail system — typed protocol messages between agents (ACID delivery)
+- [x] 📊 DAG task queue — p-queue + toposort with dependency resolution
+- [x] 🔁 Dead letter queue — exponential backoff retry with jitter
+- [x] 🩺 Agent health scoring — success/failure/stale tracking, persisted to DB
+- [x] 🔭 Correlation IDs + spans table — per-agent tracing and cost tracking
+- [x] 🔄 Plan-Execute-Observe-Replan — dispatch state machine for Manager
+- [x] 🔀 Git integration — simple-git, status pill, commit dialog, push/pull from app
+- [x] 📚 Obsidian integration — vault picker, Scribe auto-sync, live file browser
+- [x] 📐 elkjs Sugiyama layout — automatic hierarchical topology positioning
+- [x] 🔍 Zoom + pan — cursor-relative scaling (0.3x–3x), drag to pan
+- [x] 🎬 GSAP spawn/exit animations — nodes scale in/out on agent lifecycle
+- [x] 💰 Per-agent cost breakdown — model-aware pricing in token popover
+- [x] 🔔 Badge indicators — unread counts and error dots on icon rail
 
 ### 🔜 Coming Soon
 - [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
 - [ ] 🌐 Multi-machine orchestration — cluster your Mac Minis, distribute agents across machines (think [exo](https://github.com/exo-explore/exo) but for coding agents)
-- [ ] 📚 Obsidian vault integration for project memory
-- [ ] 🔀 Git integration UI (commit, push, pull from within app)
 - [ ] 🪟 Windows + Linux support
 
 ### 🔮 Future
@@ -613,9 +626,9 @@ Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly
 </p>
 
 <p align="center">
-  <code>476+ commits · 119 source files · 53 IPC channels · 56 React components</code>
+  <code>512+ commits · 140 source files · 107 IPC channels · 81 React components</code>
   <br />
-  <code>5 domain stores · 14 end-to-end tests · 20-agent stress test cleared</code>
+  <code>8 SQLite tables · 14 end-to-end tests · 20-agent stress test cleared</code>
   <br /><br />
   <strong>⚡ Stop being the bottleneck.</strong>
   <br /><br />
