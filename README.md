@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.0-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.1-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="https://tally.so/r/EkLvbX"><img src="https://img.shields.io/badge/🔔_Join_Waitlist-→-f59e0b?style=for-the-badge" /></a>
   &nbsp;
@@ -19,11 +19,11 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.0.1-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_(Apple_Silicon)-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
-  <img src="https://img.shields.io/badge/commits-512+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
+  <img src="https://img.shields.io/badge/commits-545+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
-  <img src="https://img.shields.io/badge/IPC_channels-107-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
+  <img src="https://img.shields.io/badge/IPC_channels-113-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
   <img src="https://img.shields.io/badge/Electron-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
 </p>
 
@@ -290,7 +290,7 @@ Manager rewrites agent configs on the fly based on your feedback. **The agents a
 
 ### 📡 Messages That Actually Arrive
 
-Meridian's communication layer is built on **107 typed IPC channels** between the Electron main process and the renderer.
+Meridian's communication layer is built on **113 typed IPC channels** between the Electron main process and the renderer.
 
 ```
 Sub-agent → Lead → Manager → Lead → Sub-agent
@@ -409,7 +409,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 | 🖥️ Runtime | **Electron** | Native performance, direct `child_process` spawning |
 | ⚛️ UI | **React 19 + TypeScript + Tailwind 4** | Modern stack, domain-specific Zustand stores |
 | 🗺️ Topology | **Canvas 2D** | Lightweight rendering — not WebGL, small bundle |
-| 🔌 Bridge | **53 IPC channels** | Typed, validated, bidirectional |
+| 🔌 Bridge | **113 IPC channels** | Typed, validated, bidirectional |
 | 🤖 Agents | **Real CLI subprocesses** | Isolated dirs, health monitoring, auto-restart |
 
 > **No in-memory agent simulation.** No JSON file state management pretending to be orchestration. Real processes, real IPC, real results.
@@ -608,7 +608,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Download-v1.0.0_Alpha-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Download-v1.0.1_Alpha-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
 </p>
 
 ### Requirements
@@ -732,7 +732,7 @@ Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly
 </p>
 
 <p align="center">
-  <code>512+ commits · 140 source files · 107 IPC channels · 81 React components</code>
+  <code>545+ commits · 142 source files · 113 IPC channels · 85 React components</code>
   <br />
   <code>8 SQLite tables · 14 end-to-end tests · 20-agent stress test cleared</code>
   <br /><br />
