@@ -727,6 +727,17 @@ Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly
 
 <br />
 
+## 💬 Support
+
+- **Bug reports & feature requests** → [GitHub Issues](https://github.com/Fresh1289/meridian/issues)
+- **Questions & community** → [Discord](https://discord.gg/nvkEWVu5Wx)
+
+<br />
+
+---
+
+<br />
+
 <p align="center">
   <img src="assets/meridian-icon.svg" width="48" height="48" alt="" />
 </p>
