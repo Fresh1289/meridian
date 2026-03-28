@@ -89,6 +89,104 @@ You see everything happening in real time on a **visual topology**. One chat. Fu
 
 <br />
 
+## 🔥 NEW: One-Click Workflow Templates
+
+<p align="center">
+  <img src="https://img.shields.io/badge/gstack-52k+_stars-f59e0b?style=for-the-badge&logo=github&logoColor=white" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Import-One_Click-7c3aed?style=for-the-badge" />
+  &nbsp;
+  <img src="https://img.shields.io/badge/Agents-Real_Processes-059669?style=for-the-badge" />
+</p>
+
+<br />
+
+**Import any Claude Code workflow and Meridian turns each role into a real parallel agent.**
+
+The Claude Code ecosystem has exploded — [gstack](https://github.com/garrytan/gstack) (52k+ stars), 1,300+ community skills, multiple marketplaces. These are incredible workflows. But they all have the same limitation: **one agent pretending to be 15 different roles.**
+
+When gstack runs `/review`, it's the same Claude process that just ran `/ship`. When it runs `/qa`, it forgets the context from `/plan-eng-review`. There's no parallelism. No shared memory between roles. No visual map of who's doing what. It's a brilliant prompt system — **running on a single thread.**
+
+**Meridian changes the equation.**
+
+Paste a GitHub link. Meridian clones the repo, parses every skill file, and spawns a **real, concurrent agent** for each role — each with its own process, working directory, and lifecycle. The CEO Review agent runs *alongside* the Eng Review agent. QA tests *while* the Builder ships. The Security auditor doesn't wait for anyone.
+
+<br />
+
+```
+gstack (single agent):     CEO → Eng → Design → Build → Review → QA → Ship
+                           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                           One agent, one role at a time. Sequential.
+
+Meridian (real agents):    CEO ━━━━━━━┓
+                           Eng ━━━━━━━┫
+                           Design ━━━━╋━━→ Manager orchestrates all
+                           Builder ━━━┫    in parallel, in real time
+                           QA ━━━━━━━━┫
+                           Security ━━┛
+```
+
+<br />
+
+### How It Works
+
+1. **Paste a link** — `github.com/garrytan/gstack` (or any skill pack)
+2. **Meridian parses** — extracts every role definition from the skill markdown files
+3. **Real agents spawn** — each role becomes a live subprocess on the topology
+4. **Manager orchestrates** — routes work between agents, tracks completion, handles failures
+5. **You watch** — the topology lights up with 10+ agents working in parallel
+
+<br />
+
+### What You Get
+
+| | Single-Agent Workflows | Meridian Templates |
+|:---|:---|:---|
+| 🤖 Roles | 1 agent switching personas | **Each role = real parallel agent** |
+| ⚡ Speed | Sequential — one role at a time | **Parallel — all roles simultaneously** |
+| 🧠 Memory | Context lost between role switches | **Scribe tracks all inter-agent communication** |
+| 🗺️ Visibility | Terminal output scrolling past | **Live topology map of every agent** |
+| 🔄 Recovery | Start over if context resets | **Auto-restart with exponential backoff** |
+| 📊 Cost tracking | None | **Per-agent token + cost breakdown** |
+
+<br />
+
+### Built-In: gstack by Garry Tan
+
+The first official Meridian template. 52,000+ stars. The workflow that ships 10-20k lines per day — now with real parallel agents.
+
+| Agent | Role | What It Does |
+|:---|:---|:---|
+| 🏢 Office Hours | Strategist | YC-style product reframing and design docs |
+| 👔 CEO Review | Lead | 10-section strategic review — expand, hold, or reduce |
+| ⚙️ Eng Review | Engineer | Architecture lock-down, data flow, test plans |
+| 🎨 Design Review | Designer | Visual audit, AI slop detection, accessibility |
+| 🔍 Code Review | Reviewer | Staff engineer PR review with auto-fix |
+| 🧪 QA | Tester | Browser testing, bug fixing, regression tests |
+| 🛡️ Security | CSO | OWASP + STRIDE security audits |
+| 🚀 Ship | Release | Tests, coverage, PR creation |
+
+> **All 8 agents run simultaneously.** Not one agent cycling through 8 roles. Eight real processes, eight real working directories, one Manager coordinating them all.
+
+<br />
+
+### Import Any Workflow
+
+gstack is just the beginning. Meridian's template system supports any skill pack that uses markdown-based role definitions:
+
+- **GitHub repos** — paste any URL, Meridian clones and parses
+- **Local directories** — import from your filesystem
+- **Community templates** — browse and import from the growing ecosystem
+- **Your own workflows** — package your agent team as a shareable template
+
+> 🔮 **The vision:** A world where you don't configure agents from scratch. You pick a template, Meridian deploys the team, and you start building. Like Docker Hub but for AI agent teams.
+
+<br />
+
+---
+
+<br />
+
 ## ✨ Features
 
 <br />
@@ -404,17 +502,18 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 
 ## 📊 How Meridian Compares
 
-|  | Meridian | Claude Code Teams | Claude Squad | Opcode | Agentrooms |
-|:---|:---:|:---:|:---:|:---:|:---:|
-| 🤖 Multi-agent orchestration | ✅ | 🧪 Experimental | ❌ | ❌ | ⚠️ Limited |
-| 🗺️ Visual topology | ✅ | ❌ | ❌ | ❌ | ❌ |
-| 🎯 Dynamic team composition | ✅ | ❌ | ❌ | ❌ | ❌ |
-| ⚡ Real agent subprocesses | ✅ | ✅ | ✅ | ✅ | ⚠️ Partial |
-| 🧠 Shared memory (Scribe) | ✅ | ❌ | ❌ | ❌ | ❌ |
-| 🔀 Per-agent model selection | ✅ | ❌ | ❌ | ❌ | ❌ |
-| 🖥️ Native desktop app | ✅ | CLI | TUI | Tauri | Web |
-| 🎛️ Human-in-the-loop | ✅ | ⚠️ Limited | ✅ | ✅ | ⚠️ Limited |
-| 🧪 Tested at 20 agents | ✅ | ❌ | ❌ | ❌ | ❌ |
+|  | Meridian | gstack | Claude Code Teams | Claude Squad | Opcode | Agentrooms |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|
+| 🤖 Multi-agent orchestration | ✅ | ❌ Single agent | 🧪 Experimental | ❌ | ❌ | ⚠️ Limited |
+| 🗺️ Visual topology | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 🎯 Dynamic team composition | ✅ | ❌ Fixed roles | ❌ | ❌ | ❌ | ❌ |
+| ⚡ Real parallel agents | ✅ | ❌ Sequential | ✅ | ✅ | ✅ | ⚠️ Partial |
+| 🧠 Shared memory (Scribe) | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 📦 Workflow templates | ✅ | ✅ (is one) | ❌ | ❌ | ❌ | ❌ |
+| 🔀 Per-agent model selection | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| 🖥️ Native desktop app | ✅ | CLI | CLI | TUI | Tauri | Web |
+| 🎛️ Human-in-the-loop | ✅ | ✅ | ⚠️ Limited | ✅ | ✅ | ⚠️ Limited |
+| 🧪 Tested at 20 agents | ✅ | N/A | ❌ | ❌ | ❌ | ❌ |
 
 <br />
 
@@ -453,6 +552,8 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 - [x] 🎬 GSAP spawn/exit animations — nodes scale in/out on agent lifecycle
 - [x] 💰 Per-agent cost breakdown — model-aware pricing in token popover
 - [x] 🔔 Badge indicators — unread counts and error dots on icon rail
+- [x] 📦 One-click workflow templates — import gstack or any skill pack, each role becomes a real agent
+- [x] 🔥 gstack built-in — Garry Tan's 52k-star workflow as the first official template
 
 ### 🔜 Coming Soon
 - [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
@@ -460,7 +561,6 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 - [ ] 🪟 Windows + Linux support
 
 ### 🔮 Future
-- [ ] 📦 Community workflow templates (shareable agent team configs)
 - [ ] 🏪 Agent marketplace
 - [ ] 🎙️ Voice control
 - [ ] 👥 Team collaboration (multiple humans, shared project)
