@@ -11,15 +11,15 @@
 </p>
 
 <p align="center">
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.1-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.2-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
-  <a href="https://tally.so/r/EkLvbX"><img src="https://img.shields.io/badge/🔔_Join_Waitlist-→-f59e0b?style=for-the-badge" /></a>
+  <a href="https://discord.gg/nvkEWVu5Wx"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
   &nbsp;
   <a href="#-features"><img src="https://img.shields.io/badge/Features-→-4f46e5?style=for-the-badge" /></a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.1-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.0.2-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_(Apple_Silicon)-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
   <img src="https://img.shields.io/badge/commits-545+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
@@ -608,7 +608,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Download-v1.0.1_Alpha-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Download-v1.0.2_Alpha-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
 </p>
 
 ### Requirements
@@ -619,7 +619,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 
 ### Setup
 
-1. **Download** `Meridian-1.0.0-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+1. **Download** `Meridian-1.0.2-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
 2. **Open** the DMG and drag Meridian to your Applications folder
 3. **Bypass Gatekeeper** (app is unsigned — Apple Developer enrollment pending):
    - Right-click Meridian.app → **Open** → Click **"Open"** in the dialog
