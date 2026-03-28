@@ -608,24 +608,30 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download
 
 <p align="center">
-  <strong>macOS (Apple Silicon)</strong>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Download-v1.0.0_Alpha-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
 </p>
 
-<p align="center">
-  <strong>🚧 Coming soon</strong> — v1.0.0 release in progress.
-</p>
+### Requirements
 
-<p align="center">
-  <a href="https://tally.so/r/EkLvbX"><img src="https://img.shields.io/badge/🔔_Join_the_Waitlist-Get_notified_on_launch-f59e0b?style=for-the-badge" /></a>
-</p>
+- **macOS** (Apple Silicon — M1/M2/M3/M4)
+- **Claude CLI** installed and authenticated ([install guide](https://docs.anthropic.com/en/docs/claude-code))
+- **Claude Max plan** or an Anthropic API key
 
-<p align="center">
-  ⭐ <strong>Star this repo</strong> to follow development and get release notifications.
-</p>
+### Setup
 
-> **Note:** Meridian is currently unsigned (Apple Developer Program enrollment pending).
-> On first launch: **Right-click the app → Open → Click "Open"** in the dialog.
-> Or run: `xattr -cr /Applications/Meridian.app`
+1. **Download** `Meridian-1.0.0-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+2. **Open** the DMG and drag Meridian to your Applications folder
+3. **Bypass Gatekeeper** (app is unsigned — Apple Developer enrollment pending):
+   - Right-click Meridian.app → **Open** → Click **"Open"** in the dialog
+   - Or run in Terminal: `xattr -cr /Applications/Meridian.app`
+4. **Launch** Meridian — sign in with GitHub or email
+5. **Connect Claude** — Meridian detects your CLI automatically. Optionally add an API key.
+6. **Create a project** — name it, describe what you're building, pick a directory
+7. **Start building** — Manager deploys the right team and you're off
+
+### Updates
+
+Meridian checks for new versions automatically. When an update is available, it downloads in the background and installs on next launch. No manual re-downloading.
 
 <br />
 
