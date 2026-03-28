@@ -502,18 +502,18 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 
 ## 📊 How Meridian Compares
 
-|  | Meridian | gstack | Claude Code Teams | Claude Squad | Opcode | Agentrooms |
-|:---|:---:|:---:|:---:|:---:|:---:|:---:|
-| 🤖 Multi-agent orchestration | ✅ | ❌ Single agent | 🧪 Experimental | ❌ | ❌ | ⚠️ Limited |
-| 🗺️ Visual topology | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| 🎯 Dynamic team composition | ✅ | ❌ Fixed roles | ❌ | ❌ | ❌ | ❌ |
-| ⚡ Real parallel agents | ✅ | ❌ Sequential | ✅ | ✅ | ✅ | ⚠️ Partial |
-| 🧠 Shared memory (Scribe) | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| 📦 Workflow templates | ✅ | ✅ (is one) | ❌ | ❌ | ❌ | ❌ |
-| 🔀 Per-agent model selection | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| 🖥️ Native desktop app | ✅ | CLI | CLI | TUI | Tauri | Web |
-| 🎛️ Human-in-the-loop | ✅ | ✅ | ⚠️ Limited | ✅ | ✅ | ⚠️ Limited |
-| 🧪 Tested at 20 agents | ✅ | N/A | ❌ | ❌ | ❌ | ❌ |
+|  | Meridian | Claude Code Teams | Claude Squad | Opcode | Agentrooms |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| 🤖 Multi-agent orchestration | ✅ | 🧪 Experimental | ❌ | ❌ | ⚠️ Limited |
+| 🗺️ Visual topology | ✅ | ❌ | ❌ | ❌ | ❌ |
+| 🎯 Dynamic team composition | ✅ | ❌ | ❌ | ❌ | ❌ |
+| ⚡ Real parallel agents | ✅ | ✅ | ✅ | ✅ | ⚠️ Partial |
+| 🧠 Shared memory (Scribe) | ✅ | ❌ | ❌ | ❌ | ❌ |
+| 📦 Workflow templates | ✅ | ❌ | ❌ | ❌ | ❌ |
+| 🔀 Per-agent model selection | ✅ | ❌ | ❌ | ❌ | ❌ |
+| 🖥️ Native desktop app | ✅ | CLI | TUI | Tauri | Web |
+| 🎛️ Human-in-the-loop | ✅ | ⚠️ Limited | ✅ | ✅ | ⚠️ Limited |
+| 🧪 Tested at 20 agents | ✅ | ❌ | ❌ | ❌ | ❌ |
 
 <br />
 
