@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/meridian-banner.png" width="600" alt="Meridian" />
+  <img src="assets/meridian-wordmark.svg" width="360" alt="Meridian" />
 </p>
 
 <p align="center">
