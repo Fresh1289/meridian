@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.2-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.3-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="https://discord.gg/nvkEWVu5Wx"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
   &nbsp;
@@ -19,9 +19,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.2-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.0.3-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_(Apple_Silicon)-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
-  <img src="https://img.shields.io/badge/commits-545+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
+  <img src="https://img.shields.io/badge/commits-550+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
   <img src="https://img.shields.io/badge/IPC_channels-113-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
   <img src="https://img.shields.io/badge/Electron-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
@@ -89,58 +89,71 @@ You see everything happening in real time on a **visual topology**. One chat. Fu
 
 <br />
 
-## 🔥 NEW: One-Click Workflow Templates
+## 📦 8 Built-In Templates — 60 Agents from 430k+ Stars
 
 <p align="center">
-  <img src="https://img.shields.io/badge/gstack-52k+_stars-f59e0b?style=for-the-badge&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/badge/8_Templates-60_Agents-7c3aed?style=for-the-badge" />
   &nbsp;
-  <img src="https://img.shields.io/badge/Import-One_Click-7c3aed?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/430k+_Stars-Combined-f59e0b?style=for-the-badge&logo=github&logoColor=white" />
   &nbsp;
-  <img src="https://img.shields.io/badge/Agents-Real_Processes-059669?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/One_Click-Deploy-059669?style=for-the-badge" />
 </p>
 
 <br />
 
-**Import any Claude Code workflow and Meridian turns each role into a real parallel agent.**
+**We took the 8 most popular Claude Code workflows on GitHub and turned them into one-click agent teams.**
 
-The Claude Code ecosystem has exploded — [gstack](https://github.com/garrytan/gstack) (52k+ stars), 1,300+ community skills, multiple marketplaces. These are incredible workflows. But they all have the same limitation: **one agent pretending to be 15 different roles.**
+Every template ships built into Meridian. Pick one, click Apply, and Manager deploys the full team — each role becomes a **real parallel agent** on your topology. No config. No YAML. No setup.
 
-When gstack runs `/review`, it's the same Claude process that just ran `/ship`. When it runs `/qa`, it forgets the context from `/plan-eng-review`. There's no parallelism. No shared memory between roles. No visual map of who's doing what. It's a brilliant prompt system — **running on a single thread.**
+These workflows have **430,000+ combined GitHub stars**. They're incredible prompt systems. But they all share the same limitation: one agent pretending to be 15 different roles. When gstack runs `/review`, it's the same process that just ran `/ship`. No parallelism. No shared memory. No visibility.
 
-**Meridian changes the equation.**
-
-Paste a GitHub link. Meridian clones the repo, parses every skill file, and spawns a **real, concurrent agent** for each role — each with its own process, working directory, and lifecycle. The CEO Review agent runs *alongside* the Eng Review agent. QA tests *while* the Builder ships. The Security auditor doesn't wait for anyone.
+**Meridian makes them real.**
 
 <br />
 
 ```
-gstack (single agent):     CEO → Eng → Design → Build → Review → QA → Ship
-                           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                           One agent, one role at a time. Sequential.
+CLI workflow (single agent):   Plan → Build → Review → Test → Ship
+                               ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                               One process. One role at a time.
 
-Meridian (real agents):    CEO ━━━━━━━┓
-                           Eng ━━━━━━━┫
-                           Design ━━━━╋━━→ Manager orchestrates all
-                           Builder ━━━┫    in parallel, in real time
-                           QA ━━━━━━━━┫
-                           Security ━━┛
+Meridian (real agents):        Planner ━━━━━━┓
+                               Builder ━━━━━━┫
+                               Reviewer ━━━━━╋━━→ Manager orchestrates
+                               Tester ━━━━━━━┫    all in parallel
+                               Security ━━━━━┛
 ```
+
+<br />
+
+### The Templates
+
+| Template | Source | Stars | Agents | What It Does |
+|:---|:---|---:|:---:|:---|
+| **gstack** | [Garry Tan](https://github.com/garrytan/gstack) | 54k | 8 | Full engineering org — CEO review, eng review, design, QA, security, shipping |
+| **Superpowers** | [Jesse Vincent](https://github.com/obra/superpowers) | 122k | 7 | 7-phase pipeline — brainstorm, plan, execute, TDD, code review, debug, ship |
+| **Everything Claude Code** | [Affaan Mustafa](https://github.com/affaan-m/everything-claude-code) | 115k | 8 | Production agent harness — planner, architect, security, TDD, build resolution |
+| **GSD** | [TACHES](https://github.com/gsd-build/get-shit-done) | 44k | 7 | Wave-based parallel execution — research, plan, execute, verify, audit |
+| **Agents** | [Seth Hobson](https://github.com/wshobson/agents) | 32k | 6 | Team-based orchestration — lead, implement, review, debug, secure, benchmark |
+| **Ruflo** | [ruvnet](https://github.com/ruvnet/ruflo) | 28k | 7 | Hierarchical swarm — queen coordinator, domain architects, quality gates |
+| **SuperClaude** | [SuperClaude Org](https://github.com/SuperClaude-Org/SuperClaude_Framework) | 22k | 7 | Cognitive architecture — frontend/backend/system architects, quality + security |
+| **Oh My Claude Code** | [Yeachan Heo](https://github.com/Yeachan-Heo/oh-my-claudecode) | 15k | 10 | Full 19-agent org — analyst, architect, planner, executor, designer, QA, verifier |
 
 <br />
 
 ### How It Works
 
-1. **Paste a link** — `github.com/garrytan/gstack` (or any skill pack)
-2. **Meridian parses** — extracts every role definition from the skill markdown files
+1. **Pick a template** — browse the 8 built-in options in the Templates panel
+2. **Click Apply** — Manager reads the template and deploys every agent
 3. **Real agents spawn** — each role becomes a live subprocess on the topology
-4. **Manager orchestrates** — routes work between agents, tracks completion, handles failures
-5. **You watch** — the topology lights up with 10+ agents working in parallel
+4. **Start building** — the team is ready. Just describe what you want.
+
+Or **paste any GitHub URL** — Meridian clones the repo, parses the skill files, and builds a custom template on the fly.
 
 <br />
 
-### What You Get
+### Why This Matters
 
-| | Single-Agent Workflows | Meridian Templates |
+| | CLI Workflows | Meridian Templates |
 |:---|:---|:---|
 | 🤖 Roles | 1 agent switching personas | **Each role = real parallel agent** |
 | ⚡ Speed | Sequential — one role at a time | **Parallel — all roles simultaneously** |
@@ -151,35 +164,15 @@ Meridian (real agents):    CEO ━━━━━━━┓
 
 <br />
 
-### Built-In: gstack by Garry Tan
+### Import Your Own
 
-The first official Meridian template. 52,000+ stars. The workflow that ships 10-20k lines per day — now with real parallel agents.
-
-| Agent | Role | What It Does |
-|:---|:---|:---|
-| 🏢 Office Hours | Strategist | YC-style product reframing and design docs |
-| 👔 CEO Review | Lead | 10-section strategic review — expand, hold, or reduce |
-| ⚙️ Eng Review | Engineer | Architecture lock-down, data flow, test plans |
-| 🎨 Design Review | Designer | Visual audit, AI slop detection, accessibility |
-| 🔍 Code Review | Reviewer | Staff engineer PR review with auto-fix |
-| 🧪 QA | Tester | Browser testing, bug fixing, regression tests |
-| 🛡️ Security | CSO | OWASP + STRIDE security audits |
-| 🚀 Ship | Release | Tests, coverage, PR creation |
-
-> **All 8 agents run simultaneously.** Not one agent cycling through 8 roles. Eight real processes, eight real working directories, one Manager coordinating them all.
-
-<br />
-
-### Import Any Workflow
-
-gstack is just the beginning. Meridian's template system supports any skill pack that uses markdown-based role definitions:
+Templates aren't locked to our 8 built-ins. The system supports any workflow that uses markdown-based role definitions:
 
 - **GitHub repos** — paste any URL, Meridian clones and parses
 - **Local directories** — import from your filesystem
-- **Community templates** — browse and import from the growing ecosystem
 - **Your own workflows** — package your agent team as a shareable template
 
-> 🔮 **The vision:** A world where you don't configure agents from scratch. You pick a template, Meridian deploys the team, and you start building. Like Docker Hub but for AI agent teams.
+> **Think Docker Hub, but for AI agent teams.** Pick a template, deploy the team, start building.
 
 <br />
 
@@ -552,8 +545,9 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 - [x] 🎬 GSAP spawn/exit animations — nodes scale in/out on agent lifecycle
 - [x] 💰 Per-agent cost breakdown — model-aware pricing in token popover
 - [x] 🔔 Badge indicators — unread counts and error dots on icon rail
-- [x] 📦 One-click workflow templates — import gstack or any skill pack, each role becomes a real agent
-- [x] 🔥 gstack built-in — Garry Tan's 52k-star workflow as the first official template
+- [x] 📦 One-click workflow templates — import any skill pack, each role becomes a real agent
+- [x] 🔥 8 built-in templates — 60 agents from 430k+ combined GitHub stars (gstack, Superpowers, Everything Claude Code, GSD, Agents, Ruflo, SuperClaude, Oh My Claude Code)
+- [x] 🧠 Elite Manager system prompt — intent classification, task graph decomposition, adaptive replanning, recovery playbook
 
 ### 🔜 Coming Soon
 - [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
@@ -608,7 +602,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Download-v1.0.2_Alpha-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Download-v1.0.3_Alpha-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
 </p>
 
 ### Requirements
@@ -619,7 +613,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 
 ### Setup
 
-1. **Download** `Meridian-1.0.2-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+1. **Download** `Meridian-1.0.3-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
 2. **Open** the DMG and drag Meridian to your Applications folder
 3. **Bypass Gatekeeper** (app is unsigned — Apple Developer enrollment pending):
    - Right-click Meridian.app → **Open** → Click **"Open"** in the dialog
@@ -743,7 +737,7 @@ Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly
 </p>
 
 <p align="center">
-  <code>545+ commits · 142 source files · 113 IPC channels · 85 React components</code>
+  <code>550+ commits · 142 source files · 113 IPC channels · 85 React components</code>
   <br />
   <code>8 SQLite tables · 14 end-to-end tests · 20-agent stress test cleared</code>
   <br /><br />
