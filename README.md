@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.5-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.6-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="#-download"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -21,9 +21,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.5-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.0.6-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_|_Windows-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
-  <img src="https://img.shields.io/badge/commits-570+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
+  <img src="https://img.shields.io/badge/commits-580+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
   <img src="https://img.shields.io/badge/IPC_channels-113-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
   <img src="https://img.shields.io/badge/Electron-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
@@ -31,9 +31,9 @@
 
 <br />
 
-> ### What's New in v1.0.5
+> ### What's New in v1.0.6
 >
-> **Everything works.** New project creation, config editor, file browser (now editable), deploy agent button, platform-aware keybinds, offline auth — all wired up and functional. Plus **full Git integration** (status bar pill, inline diff viewer, auto-init) and **Obsidian integration** (in-app markdown viewer, vault search, auto Scribe sync). V8 bytecode protection on all builds. **Now shipping on Windows.**
+> **Scribe Mentat.** Scribe evolves from passive logger to institutional memory — knowledge store (decisions, patterns, failures, preferences, insights), automatic pattern detection, Wisdom API for agent consultation. New **Ethos System** injects project principles into every agent's prompt. Agents spawn with **Scribe briefings** — top 5 relevant knowledge entries injected at boot. ScribePanel gets 4 tabs: Timeline, Knowledge, Insights, Stats. Plus **Delete Project** with full cleanup (multi-project safe), chat visibility fixes, and git/obsidian poll guards.
 
 <br />
 
@@ -247,14 +247,25 @@ Agents appear on the topology as they're deployed. Manager can add, remove, or r
 
 <br />
 
-### 🧠 Shared Structured Memory (Scribe)
+### 🧠 Scribe Mentat — Institutional Memory
 
-Scribe runs silently in the background, reading **all** communication between agents. It logs everything to the project filesystem — decisions, code changes, conversations, corrections. **Human-readable markdown**, not opaque vector databases.
+Scribe is your project's **Mentat** — not just a logger, but a knowledge engine with total recall. It absorbs all communication between agents and **synthesizes wisdom on demand**.
 
-When Manager forgets context from 50 messages ago, Scribe surfaces it instantly. It's your project's institutional knowledge — the thing that makes agent teams actually work across long sessions.
+**Three layers:**
+- **Event Stream** — raw timeline of every relay, spawn, error, and message
+- **Knowledge Store** — categorized JSONL files: decisions, patterns, failures, preferences, insights
+- **Wisdom API** — `consult(topic)`, `learn(entry)`, `wisdom()`, `brief(role)`, `stats()`
 
-> 📂 Plain text on disk. Read it yourself. Search it with grep. Sync it to Obsidian.
-> No proprietary binary format. No "memory engine" you can't inspect.
+**Pattern Detection** runs on every event (lightweight regex, no LLM) — catches recurring errors, user corrections, decision trends, and agent loops. Stores findings as searchable knowledge.
+
+**Ethos System** — `.meridian/ethos.md` defines project principles. Injected into every agent's system prompt. Editable in the Files panel.
+
+**Spawn Injection** — when any agent spawns, Scribe's top 5 relevant knowledge entries + project ethos are injected into its system prompt. Agents start with context, not a blank slate.
+
+**ScribePanel** now has 4 tabs: Timeline, Knowledge (filterable by category), Insights (with acknowledge), and Stats (velocity, category breakdown).
+
+> 📂 Plain text JSONL on disk. Read it yourself. Search it with grep. Sync it to Obsidian.
+> No proprietary binary format. No vector databases. No "memory engine" you can't inspect.
 
 <br />
 
@@ -610,9 +621,9 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.0.5_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.0.6_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-v1.0.5_Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-v1.0.6_Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
 </p>
 
 ### Requirements
@@ -623,7 +634,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 
 ### Setup — Mac
 
-1. **Download** `Meridian-1.0.5-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+1. **Download** `Meridian-1.0.6-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
 2. **Open** the DMG and drag Meridian to your Applications folder
 3. **Bypass Gatekeeper** (app is unsigned — Apple Developer enrollment pending):
    - Right-click Meridian.app → **Open** → Click **"Open"** in the dialog
@@ -634,7 +645,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 
 ### Setup — Windows
 
-1. **Download** `Meridian.Setup.1.0.5.exe` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+1. **Download** `Meridian.Setup.1.0.6.exe` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
 2. **Run the installer** — Windows may show a SmartScreen warning (click "More info" → "Run anyway")
 3. **Launch** Meridian — sign in with GitHub or email
 4. **Create a project** and start building
@@ -753,7 +764,7 @@ Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly
 </p>
 
 <p align="center">
-  <code>550+ commits · 142 source files · 113 IPC channels · 85 React components</code>
+  <code>580+ commits · 142 source files · 119 IPC channels · 85 React components</code>
   <br />
   <code>8 SQLite tables · 14 end-to-end tests · 20-agent stress test cleared</code>
   <br /><br />
