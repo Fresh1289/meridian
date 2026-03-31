@@ -11,7 +11,9 @@
 </p>
 
 <p align="center">
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.3-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.5-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  &nbsp;
+  <a href="#-download"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
   <a href="https://discord.gg/nvkEWVu5Wx"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
   &nbsp;
@@ -19,13 +21,19 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.3-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
-  <img src="https://img.shields.io/badge/platform-macOS_(Apple_Silicon)-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
-  <img src="https://img.shields.io/badge/commits-550+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
+  <img src="https://img.shields.io/badge/version-1.0.5-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/platform-macOS_|_Windows-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
+  <img src="https://img.shields.io/badge/commits-570+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
   <img src="https://img.shields.io/badge/IPC_channels-113-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
   <img src="https://img.shields.io/badge/Electron-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
 </p>
+
+<br />
+
+> ### What's New in v1.0.5
+>
+> **Everything works.** New project creation, config editor, file browser (now editable), deploy agent button, platform-aware keybinds, offline auth — all wired up and functional. Plus **full Git integration** (status bar pill, inline diff viewer, auto-init) and **Obsidian integration** (in-app markdown viewer, vault search, auto Scribe sync). V8 bytecode protection on all builds. **Now shipping on Windows.**
 
 <br />
 
@@ -602,26 +610,34 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Download-v1.0.3_Alpha-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.0.5_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  &nbsp;
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-v1.0.5_Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
 </p>
 
 ### Requirements
 
-- **macOS** (Apple Silicon — M1/M2/M3/M4)
+- **macOS** (Apple Silicon — M1/M2/M3/M4) or **Windows** (x64)
 - **Claude CLI** installed and authenticated ([install guide](https://docs.anthropic.com/en/docs/claude-code))
 - **Claude Max plan** or an Anthropic API key
 
-### Setup
+### Setup — Mac
 
-1. **Download** `Meridian-1.0.3-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+1. **Download** `Meridian-1.0.5-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
 2. **Open** the DMG and drag Meridian to your Applications folder
 3. **Bypass Gatekeeper** (app is unsigned — Apple Developer enrollment pending):
    - Right-click Meridian.app → **Open** → Click **"Open"** in the dialog
    - Or run in Terminal: `xattr -cr /Applications/Meridian.app`
 4. **Launch** Meridian — sign in with GitHub or email
-5. **Connect Claude** — Meridian detects your CLI automatically. Optionally add an API key.
-6. **Create a project** — name it, describe what you're building, pick a directory
-7. **Start building** — Manager deploys the right team and you're off
+5. **Create a project** — name it, describe what you're building, pick a directory
+6. **Start building** — Manager deploys the right team and you're off
+
+### Setup — Windows
+
+1. **Download** `Meridian.Setup.1.0.5.exe` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+2. **Run the installer** — Windows may show a SmartScreen warning (click "More info" → "Run anyway")
+3. **Launch** Meridian — sign in with GitHub or email
+4. **Create a project** and start building
 
 ### Updates
 
