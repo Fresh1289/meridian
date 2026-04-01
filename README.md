@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-v1.2.0-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-v1.3.2-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -21,25 +21,25 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.2.0-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.3.2-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_|_Windows_|_Linux-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
-  <img src="https://img.shields.io/badge/commits-620+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
+  <img src="https://img.shields.io/badge/commits-680+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
-  <img src="https://img.shields.io/badge/IPC_channels-117-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
-  <img src="https://img.shields.io/badge/Electron-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
+  <img src="https://img.shields.io/badge/IPC_channels-120+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
+  <img src="https://img.shields.io/badge/Electron_41-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
 </p>
 
 <br />
 
-> ### What's New in v1.2.0 — Battle Readiness
+> ### What's New in v1.3.2 — Hardened Meridian
 >
-> **12 reliability gaps closed in one sprint.** Meridian now has full workflow parity with manual multi-agent setups.
+> **Security hardened + reliability infrastructure.** 9 audit items closed, 3 user-reported bugs fixed.
 >
-> **Safety Gates:** Worktree isolation per agent, merge approval UI with diff review, relay approval panel (intercept/edit/drop messages), pre-commit typecheck gate.
+> **Security:** Shell injection fix, 18 async IPC handlers wrapped in try-catch, PTY env whitelist (no API key leakage), symlink-safe path validation.
 >
-> **Workflow Parity:** Session continuity (context survives resets), parallel DAG dispatch (concurrency 4), relay ACK with dead letter queue (SQLite mail, 60s timeout, auto-retry), context visibility (model-aware token tracking, 70%/85% warnings).
+> **Reliability:** Relay ACK + deadletter queue (SQLite-backed, 60s/120s/240s backoff), session snapshot injection (context survives resets), per-project file locks, worktree orphan cleanup.
 >
-> **Full Pipeline:** Review loop with APPROVE/CORRECTION directives, spec workflow (SQLite persistence + SpecPanel), fast-track detection (auto-classify single-file tasks), status dashboard (5-section grid, auto-refresh).
+> **UX:** Dark-themed Deploy Agent dropdown, keyboard shortcuts wired (Ctrl/Cmd+1-9), cancel button on Create Project, chat input z-index fix.
 
 <br />
 
@@ -238,7 +238,7 @@ Every relay between agents is visible. You see exactly what Manager told the Bui
 
 <br />
 
-### 🛡️ Safety Gates (NEW in v1.2.0)
+### 🛡️ Safety Gates (v1.2.0+)
 
 Meridian now has **four layers of safety** between agent code and your codebase:
 
@@ -249,13 +249,13 @@ Meridian now has **four layers of safety** between agent code and your codebase:
 
 <br />
 
-### 🔄 Parallel DAG Dispatch (NEW in v1.2.0)
+### 🔄 Parallel DAG Dispatch (v1.2.0+)
 
 Manager can now dispatch **up to 4 agents simultaneously** with dependency-aware scheduling. Tasks that don't depend on each other run in parallel. Agent locking prevents conflicts. Worktree-aware dispatch keeps builders isolated.
 
 <br />
 
-### 📡 Relay ACK + Dead Letter Queue (NEW in v1.2.0)
+### 📡 Relay ACK + Dead Letter Queue (v1.2.0+)
 
 Every inter-agent message is now **acknowledged**. SQLite-backed mail routing with 60-second timeouts, automatic retry, and a dead letter queue for messages that can't be delivered. No more fire-and-forget.
 
@@ -353,7 +353,7 @@ Manager rewrites agent configs on the fly based on your feedback. **The agents a
 
 ### 📡 Messages That Actually Arrive
 
-Meridian's communication layer is built on **117 typed IPC channels** between the Electron main process and the renderer.
+Meridian's communication layer is built on **120+ typed IPC channels** between the Electron main process and the renderer.
 
 ```
 Sub-agent → Lead → Manager → Lead → Sub-agent
@@ -454,7 +454,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 │  │  🔧 Electron  │         │  🎨 React 19 + Canvas 2D   │ │
 │  │  Main Process │   IPC   │                            │ │
 │  │               │◄───────►│  Topology · Chat ·         │ │
-│  │  Agent        │   117   │  Terminal · Settings ·     │ │
+│  │  Agent        │   120+  │  Terminal · Settings ·     │ │
 │  │  Spawner      │  chan   │  Vault · Status Bar        │ │
 │  └──────┬───────┘         └────────────────────────────┘ │
 │         │                                                │
@@ -472,7 +472,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 | 🖥️ Runtime | **Electron** | Native performance, direct `child_process` spawning |
 | ⚛️ UI | **React 19 + TypeScript + Tailwind 4** | Modern stack, domain-specific Zustand stores |
 | 🗺️ Topology | **Canvas 2D** | Lightweight rendering — not WebGL, small bundle |
-| 🔌 Bridge | **117 IPC channels** | Typed, validated, bidirectional |
+| 🔌 Bridge | **120+ IPC channels** | Typed, validated, bidirectional |
 | 🤖 Agents | **Real CLI subprocesses** | Isolated worktrees, health monitoring, auto-restart |
 | 🗄️ Storage | **SQLite (WAL mode)** | Specs, sessions, relay mail, agent state — all ACID |
 
@@ -543,10 +543,22 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 - [x] ⚡ Fast-track detection — auto-classify single-file tasks, `!fast`/`!full` override
 - [x] 📋 Status dashboard — 5-section grid, auto-refresh
 
+### ✅ v1.3.x — Immortal + Hardened (60+ commits)
+- [x] 🔄 Manager hot-swap — dual slots, 70% context trigger, zero-downtime rotation
+- [x] 🛡️ Master supervisor — Unix socket health pings, crash recovery, auto-restart
+- [x] 🔁 Self-update engine — git watcher, typecheck gate, rollback on failure
+- [x] 🔒 Security hardening — execFileSync, IPC try-catch, env whitelist, path validation
+- [x] 📬 Relay ACK + deadletter — SQLite-backed delivery with exponential backoff retry
+- [x] 💾 Session snapshot injection — context restored on agent reset
+- [x] 🔐 Per-project file locks + worktree orphan cleanup
+- [x] ⌨️ Full keyboard shortcuts (Ctrl/Cmd+1-9, 0, - for all panels)
+- [x] 💰 Cost controls — 500K token budget, $5-50 warnings, 20 agent limit
+- [x] 🎨 UI polish — dark dropdowns, z-index fixes, cancel button on project creation
+
 ### 🔜 Coming Soon
 - [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
 - [ ] 🌐 Multi-machine orchestration — cluster your Mac Minis, distribute agents across machines
-- [ ] 🧠 Context compaction — tiered eviction + LLM summarization (inspired by Claude Code internals)
+- [ ] 🧠 Context compaction — tiered eviction + LLM summarization
 - [ ] 🪝 Hook system — lifecycle events, PreToolUse interception, middleware framework
 
 ### 🔮 Future
@@ -598,7 +610,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download & Setup
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.2.0_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.3.2_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -796,7 +808,7 @@ Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly
 </p>
 
 <p align="center">
-  <code>620+ commits · 142 source files · 117 IPC channels · 79 React components</code>
+  <code>680+ commits · 158 source files · 120+ IPC channels · 83 React components</code>
   <br />
   <code>11 SQLite tables · 14 end-to-end tests · 20-agent stress test cleared</code>
   <br /><br />
