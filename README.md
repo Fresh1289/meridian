@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.6-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.7-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="#-download"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -21,19 +21,19 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.6-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.0.7-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_|_Windows-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
-  <img src="https://img.shields.io/badge/commits-580+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
+  <img src="https://img.shields.io/badge/commits-590+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
-  <img src="https://img.shields.io/badge/IPC_channels-113-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
+  <img src="https://img.shields.io/badge/IPC_channels-117-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
   <img src="https://img.shields.io/badge/Electron-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
 </p>
 
 <br />
 
-> ### What's New in v1.0.6
+> ### What's New in v1.0.7
 >
-> **Scribe Mentat.** Scribe evolves from passive logger to institutional memory — knowledge store (decisions, patterns, failures, preferences, insights), automatic pattern detection, Wisdom API for agent consultation. New **Ethos System** injects project principles into every agent's prompt. Agents spawn with **Scribe briefings** — top 5 relevant knowledge entries injected at boot. ScribePanel gets 4 tabs: Timeline, Knowledge, Insights, Stats. Plus **Delete Project** with full cleanup (multi-project safe), chat visibility fixes, and git/obsidian poll guards.
+> **Intelligence System.** Three-tier **Effort Level** (Standard / Extended / Maximum) controls how deeply agents reason — injected into every system prompt. **Wizard Mode** enables adversarial verification: Manager spawns a **Critic agent** that assumes every output is wrong and attacks it. The original agent defends. They iterate up to 3 rounds until the Critic issues `VERDICT: APPROVED`. Every output is battle-tested before delivery. Plus: full **project lifecycle fixes** — SQLite cleanup on delete, Scribe panel reset on project switch, ErrorBoundary crash recovery, and agent color consolidation.
 
 <br />
 
@@ -269,6 +269,28 @@ Scribe is your project's **Mentat** — not just a logger, but a knowledge engin
 
 <br />
 
+### 🧙 Intelligence System — Effort Level + Wizard Mode
+
+**Effort Level** gives you a 3-position dial on agent thinking depth:
+- **Standard** — default behavior
+- **Extended** — agents reason more carefully, consider edge cases, verify logic
+- **Maximum** — deep analysis, exhaustive edge case coverage, double-checked output
+
+**Wizard Mode** goes further — it enables **adversarial verification**. When active:
+
+1. Agent produces output → sends to Manager
+2. Manager **spawns a Critic agent** — an adversarial reviewer that assumes the output is wrong
+3. Critic attacks: logic errors, edge cases, security issues, incorrect assumptions
+4. Original agent defends: fixes real issues, justifies valid choices
+5. They iterate until the Critic issues `VERDICT: APPROVED` (max 3 rounds)
+6. Only battle-tested output gets delivered
+
+The Critic is a real agent on the topology — you can watch the debate happen in real time. **No other multi-agent tool has built-in adversarial quality gates.**
+
+> 🧪 Wizard Mode costs more tokens but catches bugs before they ship. Use it for critical features, skip it for quick fixes.
+
+<br />
+
 ### 🔀 Mix Models Per Agent
 
 Meridian currently runs on **Claude Code** — the most capable coding agent available. You can assign different Claude models to different agents:
@@ -302,7 +324,7 @@ Manager rewrites agent configs on the fly based on your feedback. **The agents a
 
 ### 📡 Messages That Actually Arrive
 
-Meridian's communication layer is built on **113 typed IPC channels** between the Electron main process and the renderer.
+Meridian's communication layer is built on **117 typed IPC channels** between the Electron main process and the renderer.
 
 ```
 Sub-agent → Lead → Manager → Lead → Sub-agent
@@ -421,7 +443,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 | 🖥️ Runtime | **Electron** | Native performance, direct `child_process` spawning |
 | ⚛️ UI | **React 19 + TypeScript + Tailwind 4** | Modern stack, domain-specific Zustand stores |
 | 🗺️ Topology | **Canvas 2D** | Lightweight rendering — not WebGL, small bundle |
-| 🔌 Bridge | **113 IPC channels** | Typed, validated, bidirectional |
+| 🔌 Bridge | **117 IPC channels** | Typed, validated, bidirectional |
 | 🤖 Agents | **Real CLI subprocesses** | Isolated dirs, health monitoring, auto-restart |
 
 > **No in-memory agent simulation.** No JSON file state management pretending to be orchestration. Real processes, real IPC, real results.
@@ -525,6 +547,7 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 | 🔀 Per-agent model selection | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 🖥️ Native desktop app | ✅ | CLI | TUI | Tauri | Web |
 | 🎛️ Human-in-the-loop | ✅ | ⚠️ Limited | ✅ | ✅ | ⚠️ Limited |
+| 🧙 Adversarial verification | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 🧪 Tested at 20 agents | ✅ | ❌ | ❌ | ❌ | ❌ |
 
 <br />
@@ -567,6 +590,9 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 - [x] 📦 One-click workflow templates — import any skill pack, each role becomes a real agent
 - [x] 🔥 8 built-in templates — 60 agents from 430k+ combined GitHub stars (gstack, Superpowers, Everything Claude Code, GSD, Agents, Ruflo, SuperClaude, Oh My Claude Code)
 - [x] 🧠 Elite Manager system prompt — intent classification, task graph decomposition, adaptive replanning, recovery playbook
+- [x] 🧙 Intelligence System — 3-tier effort level + Wizard Mode adversarial verification with Critic agent
+- [x] 🛡️ ErrorBoundary — crash recovery with styled reload screen
+- [x] 🗑️ Full project deletion — SQLite cleanup across all 11 tables, Scribe reset, session purge
 
 ### 🔜 Coming Soon
 - [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
@@ -621,9 +647,9 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.0.6_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.0.7_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-v1.0.6_Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-v1.0.7_Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
 </p>
 
 ### Requirements
@@ -634,7 +660,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 
 ### Setup — Mac
 
-1. **Download** `Meridian-1.0.6-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+1. **Download** `Meridian-1.0.7-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
 2. **Open** the DMG and drag Meridian to your Applications folder
 3. **Bypass Gatekeeper** (app is unsigned — Apple Developer enrollment pending):
    - Right-click Meridian.app → **Open** → Click **"Open"** in the dialog
@@ -645,7 +671,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 
 ### Setup — Windows
 
-1. **Download** `Meridian.Setup.1.0.6.exe` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+1. **Download** `Meridian.Setup.1.0.7.exe` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
 2. **Run the installer** — Windows may show a SmartScreen warning (click "More info" → "Run anyway")
 3. **Launch** Meridian — sign in with GitHub or email
 4. **Create a project** and start building
@@ -764,9 +790,9 @@ Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly
 </p>
 
 <p align="center">
-  <code>580+ commits · 142 source files · 119 IPC channels · 85 React components</code>
+  <code>590+ commits · 142 source files · 117 IPC channels · 79 React components</code>
   <br />
-  <code>8 SQLite tables · 14 end-to-end tests · 20-agent stress test cleared</code>
+  <code>11 SQLite tables · 14 end-to-end tests · 20-agent stress test cleared</code>
   <br /><br />
   <strong>⚡ Stop being the bottleneck.</strong>
   <br /><br />
