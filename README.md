@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.8-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.9-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="#-download"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.8-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.0.9-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_|_Windows-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
   <img src="https://img.shields.io/badge/commits-590+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
@@ -31,9 +31,9 @@
 
 <br />
 
-> ### What's New in v1.0.8
+> ### What's New in v1.0.9
 >
-> **Intelligence System.** Three-tier **Effort Level** (Standard / Extended / Maximum) controls how deeply agents reason — injected into every system prompt. **Wizard Mode** enables adversarial verification: Manager spawns a **Critic agent** that assumes every output is wrong and attacks it. The original agent defends. They iterate up to 3 rounds until the Critic issues `VERDICT: APPROVED`. Every output is battle-tested before delivery. Plus: full **project lifecycle fixes** — SQLite cleanup on delete, Scribe panel reset on project switch, ErrorBoundary crash recovery, and agent color consolidation.
+> **Multi-Project.** Full project switching — create multiple projects, switch between them from the top bar, and each project preserves its own session state (chat history, agents, UI). No more losing progress when switching. **Reinstall detection** — existing projects are found automatically on fresh install, skipping re-onboarding. **Support Agent** — every Meridian installation now writes a diagnostic `CLAUDE.md` to the projects root. Open the built-in terminal, run `claude`, and ask it to diagnose any issue — it knows where logs, databases, and session files live. Self-healing, zero-config support.
 
 <br />
 
