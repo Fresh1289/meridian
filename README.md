@@ -558,7 +558,7 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 
 ## 🗺️ Roadmap
 
-### ✅ Shipped (v1.0.0)
+### ✅ v1.0.1 — First Public Release
 - [x] 🗺️ Visual agent topology with real-time status
 - [x] 🎯 Dynamic team composition via Manager
 - [x] 🧠 Scribe agent for shared structured memory
@@ -573,6 +573,8 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 - [x] 🩺 Self-healing agents (retry, backoff, model fallback)
 - [x] 🔄 Context rotation (auto session dump at 85% usage)
 - [x] 🧪 14 end-to-end tests passed, including 20-agent stress test
+
+### ✅ v1.0.3 — Infrastructure + Templates
 - [x] 🗄️ SQLite persistence — projects, agents, chat, sessions survive restarts
 - [x] 📬 SQLite mail system — typed protocol messages between agents (ACID delivery)
 - [x] 📊 DAG task queue — p-queue + toposort with dependency resolution
@@ -588,11 +590,27 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 - [x] 💰 Per-agent cost breakdown — model-aware pricing in token popover
 - [x] 🔔 Badge indicators — unread counts and error dots on icon rail
 - [x] 📦 One-click workflow templates — import any skill pack, each role becomes a real agent
-- [x] 🔥 8 built-in templates — 60 agents from 430k+ combined GitHub stars (gstack, Superpowers, Everything Claude Code, GSD, Agents, Ruflo, SuperClaude, Oh My Claude Code)
+- [x] 🔥 8 built-in templates — 60 agents from 430k+ combined GitHub stars
 - [x] 🧠 Elite Manager system prompt — intent classification, task graph decomposition, adaptive replanning, recovery playbook
-- [x] 🧙 Intelligence System — 3-tier effort level + Wizard Mode adversarial verification with Critic agent
-- [x] 🛡️ ErrorBoundary — crash recovery with styled reload screen
-- [x] 🗑️ Full project deletion — SQLite cleanup across all 11 tables, Scribe reset, session purge
+
+### ✅ v1.0.4 — Security + Windows
+- [x] 🔒 V8 bytecode compilation (bytenode) — 28 files protected
+- [x] 📦 Encrypted ASAR packaging
+- [x] 🪟 Windows support — NSIS installer via GitHub Actions
+
+### ✅ v1.0.6 — Scribe Mentat
+- [x] 🧠 Scribe Mentat — knowledge store (5 JSONL categories), pattern detection, Wisdom API
+- [x] 📜 Ethos System — project principles injected into every agent's prompt
+- [x] 🎓 Spawn Injection — top 5 relevant knowledge entries briefed to agents at boot
+- [x] 📊 ScribePanel 4 tabs — Timeline, Knowledge, Insights, Stats
+- [x] 🗑️ Delete Project — full cleanup, multi-project safe
+
+### ✅ v1.0.7 — Intelligence System
+- [x] 🎚️ Effort Level — 3-tier control (Standard / Extended / Maximum) injected into all agent system prompts
+- [x] 🧙 Wizard Mode — adversarial verification: Critic agent spawns to attack every output, 3-round max, requires VERDICT: APPROVED
+- [x] 🛡️ ErrorBoundary — component crash recovery with styled reload screen
+- [x] 🗄️ Full project deletion — transactional SQLite cleanup across all 11 tables
+- [x] 🔄 Project lifecycle fixes — Scribe panel reset on switch, state clear before load
 
 ### 🔜 Coming Soon
 - [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
