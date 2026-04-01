@@ -22,7 +22,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-1.0.9-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
-  <img src="https://img.shields.io/badge/platform-macOS_|_Windows-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
+  <img src="https://img.shields.io/badge/platform-macOS_|_Windows_|_Linux-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
   <img src="https://img.shields.io/badge/commits-590+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
   <img src="https://img.shields.io/badge/IPC_channels-117-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
@@ -662,58 +662,195 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 
 <br />
 
-## 📥 Download
+## 📥 Download & Setup
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.0.8_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.0.9_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-v1.0.8_Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
+  &nbsp;
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Linux_(x64)-AppImage-7c3aed?style=for-the-badge&logo=linux&logoColor=white" /></a>
 </p>
 
-### Requirements
+### Prerequisites
 
-- **macOS** (Apple Silicon — M1/M2/M3/M4) or **Windows** (x64)
-- **Node.js** 18+ ([download](https://nodejs.org/))
-- **Claude Code** installed via npm (**required — the standalone curl installer is not supported**):
-  ```bash
-  npm install -g @anthropic-ai/claude-code
-  ```
-- **Claude CLI authenticated** — run `claude auth login` after installing
-- **Claude Max plan** or an Anthropic API key
+Before installing Meridian, you need two things:
 
-> ⚠️ **Important:** Meridian requires the **npm version** of Claude Code, not the standalone installer (`curl -fsSL https://claude.ai/install.sh`). If you installed via curl, run `npm install -g @anthropic-ai/claude-code` to switch.
+**1. Node.js 18+**
+```bash
+# Check if installed:
+node --version
 
-### Setup — Mac
+# If not installed, download from https://nodejs.org/
+# Or use nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+nvm install 22
+```
 
-1. **Install Claude Code** (if you haven't):
-   ```bash
-   npm install -g @anthropic-ai/claude-code
-   claude auth login
-   ```
-2. **Download** `Meridian-1.0.8-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
-3. **Open** the DMG and drag Meridian to your Applications folder
-4. **Bypass Gatekeeper** (app is unsigned — Apple Developer enrollment pending):
-   - Right-click Meridian.app → **Open** → Click **"Open"** in the dialog
-   - Or run in Terminal: `xattr -cr /Applications/Meridian.app`
-5. **Launch** Meridian — sign in with GitHub or email
-6. **Create a project** — name it, describe what you're building, pick a directory
-7. **Start building** — Manager deploys the right team and you're off
+**2. Claude Code (npm version)**
+```bash
+# Install Claude Code globally:
+npm install -g @anthropic-ai/claude-code
 
-### Setup — Windows
+# Authenticate:
+claude auth login
+# This opens your browser — sign in with your Anthropic account
 
-1. **Install Claude Code** (if you haven't):
-   ```bash
-   npm install -g @anthropic-ai/claude-code
-   claude auth login
-   ```
-2. **Download** `Meridian.Setup.1.0.8.exe` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
-3. **Run the installer** — Windows may show a SmartScreen warning (click "More info" → "Run anyway")
-4. **Launch** Meridian — sign in with GitHub or email
-5. **Create a project** and start building
+# Verify it works:
+claude --version
+claude auth status
+```
 
-### Updates
+> ⚠️ **Important:** Meridian requires the **npm version** of Claude Code, not the standalone installer (`curl -fsSL https://claude.ai/install.sh`). The standalone binary uses a different format that Meridian cannot spawn. If you installed via curl, switch with: `npm install -g @anthropic-ai/claude-code`
 
-Meridian checks for new versions automatically. When an update is available, it downloads in the background and installs on next launch. No manual re-downloading.
+**3. Claude Max plan or API key**
+- **Claude Max** ($100/month or $200/month) — recommended, uses your plan credits directly
+- **Anthropic API key** — pay-per-token, can be added during onboarding
+
+### Setup — macOS (Apple Silicon)
+
+```bash
+# Step 1: Install prerequisites (if needed)
+npm install -g @anthropic-ai/claude-code
+claude auth login
+
+# Step 2: Download the DMG
+# → https://github.com/Fresh1289/meridian/releases/latest
+# → Download Meridian-1.0.9-arm64.dmg
+
+# Step 3: Install
+# Open the DMG → drag Meridian to Applications
+
+# Step 4: Bypass Gatekeeper (app is unsigned)
+# Option A: Right-click Meridian.app → Open → Click "Open" in the dialog
+# Option B: Run in Terminal:
+xattr -cr /Applications/Meridian.app
+
+# Step 5: Launch Meridian
+open /Applications/Meridian.app
+```
+
+**First launch walkthrough:**
+1. **Sign in** — GitHub OAuth or email/password
+2. **CLI check** — Meridian verifies Claude Code is installed and authenticated
+3. **Create a project** — name it, describe what you're building
+4. **Start chatting** — Manager deploys agents and you're off
+
+### Setup — Windows (x64)
+
+```bash
+# Step 1: Install prerequisites
+npm install -g @anthropic-ai/claude-code
+claude auth login
+
+# Step 2: Download the installer
+# → https://github.com/Fresh1289/meridian/releases/latest
+# → Download Meridian.Setup.exe
+```
+
+3. **Run the installer** — Windows may show a SmartScreen warning → click "More info" → "Run anyway"
+4. **Launch Meridian** — sign in, create a project, start building
+
+### Setup — Linux (x64)
+
+```bash
+# Step 1: Install prerequisites
+npm install -g @anthropic-ai/claude-code
+claude auth login
+
+# Step 2: Download
+# → https://github.com/Fresh1289/meridian/releases/latest
+# → Download Meridian.AppImage (or .deb)
+
+# Step 3a: AppImage
+chmod +x Meridian-*.AppImage
+./Meridian-*.AppImage
+
+# Step 3b: Debian/Ubuntu (.deb)
+sudo dpkg -i meridian_*.deb
+```
+
+### Multi-Project Workflow
+
+Meridian supports multiple projects. Each project gets its own workspace, agents, and session state.
+
+- **Top bar** shows all your projects — click to switch
+- **Session state is saved per-project** — switch away, come back, everything is where you left it
+- **"+" button** in the top bar creates a new project
+- **Reinstall-safe** — if you update Meridian, it detects your existing projects automatically
+
+Projects live in `~/meridian-projects/`. Each project has its own `.meridian/` directory with agent configs, scribe data, and session files.
+
+### Built-in Support Agent
+
+Every Meridian installation includes a **self-diagnosing support system**. If something goes wrong:
+
+1. **Open the terminal** (Ctrl+\` or click the terminal icon)
+2. **Run `claude`** — Claude Code launches with full knowledge of your Meridian installation
+3. **Ask it anything** — "why isn't Manager responding?", "check my auth status", "show recent errors"
+
+Claude automatically reads a diagnostic `CLAUDE.md` that includes your app version, log file locations, database paths, common fixes, and architecture overview. It can inspect logs, check running processes, verify authentication, and guide you through fixes — **zero configuration required**.
+
+### Troubleshooting
+
+<details>
+<summary><strong>"Manager not replying" / agents stuck</strong></summary>
+<br />
+
+1. Open the terminal and run `claude auth status` — if not authenticated, run `claude auth login`
+2. Check if Claude processes exist: `ps aux | grep claude`
+3. Try quitting and relaunching Meridian
+4. Or open the terminal and run `claude` → ask it to diagnose the issue
+
+</details>
+
+<details>
+<summary><strong>"Not authenticated" error on first launch</strong></summary>
+<br />
+
+This usually means Claude Code can't find your PATH. Common with nvm or Homebrew installs.
+
+```bash
+# Fix: re-authenticate
+claude auth login
+
+# Verify:
+claude auth status
+```
+
+If it persists, open the terminal inside Meridian and run `claude auth login` directly.
+
+</details>
+
+<details>
+<summary><strong>App won't open on macOS ("damaged" or "unidentified developer")</strong></summary>
+<br />
+
+Meridian is currently unsigned (Apple Developer enrollment pending). Fix with:
+
+```bash
+xattr -cr /Applications/Meridian.app
+```
+
+Then right-click → Open → "Open" in the dialog.
+
+</details>
+
+<details>
+<summary><strong>How to update</strong></summary>
+<br />
+
+Download the latest release from [GitHub Releases](https://github.com/Fresh1289/meridian/releases/latest). On macOS, drag the new `.app` over the old one in `/Applications`. All your projects and settings are preserved — the app data lives in `~/meridian-projects/` and `~/Library/Application Support/meridian/`, not inside the app bundle.
+
+</details>
+
+<details>
+<summary><strong>Files panel is empty</strong></summary>
+<br />
+
+This can happen if the project directory path wasn't resolved correctly. Fix: delete the project and recreate it in v1.0.9+, which uses the correct absolute path.
+
+</details>
 
 <br />
 
@@ -759,7 +896,7 @@ The source code is currently private. This repo is a showcase of what Meridian i
 <summary><strong>What operating systems are supported?</strong></summary>
 <br />
 
-**macOS (Apple Silicon)** today. Windows and Linux support is on the roadmap.
+**macOS (Apple Silicon)**, **Windows (x64)**, and **Linux (x64)** — AppImage and .deb packages available.
 
 </details>
 
