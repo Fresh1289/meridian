@@ -11,9 +11,9 @@
 </p>
 
 <p align="center">
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.1.0-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-v1.2.0-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
+  <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
   <a href="https://discord.gg/nvkEWVu5Wx"><img src="https://img.shields.io/badge/Discord-Join-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
   &nbsp;
@@ -21,9 +21,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.1.0-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.2.0-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_|_Windows_|_Linux-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
-  <img src="https://img.shields.io/badge/commits-590+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
+  <img src="https://img.shields.io/badge/commits-620+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
   <img src="https://img.shields.io/badge/IPC_channels-117-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
   <img src="https://img.shields.io/badge/Electron-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
@@ -31,9 +31,15 @@
 
 <br />
 
-> ### What's New in v1.1.0
+> ### What's New in v1.2.0 — Battle Readiness
 >
-> **Scribe Mentat is live.** The knowledge loop is fully wired — Manager now consults Scribe before decisions and teaches it after. Scribe flashes "Consulting..." / "Learning..." on the topology. **Reliability hardening:** 5-minute request timeouts, circuit breaker (5 failures → 2-min cooldown), manual retry actually re-sends messages. **Files panel fixed** — `~` paths now resolve correctly. Plus all v1.0.9 features: multi-project switching, per-project sessions, reinstall detection, and the built-in Support Agent.
+> **12 reliability gaps closed in one sprint.** Meridian now has full workflow parity with manual multi-agent setups.
+>
+> **Safety Gates:** Worktree isolation per agent, merge approval UI with diff review, relay approval panel (intercept/edit/drop messages), pre-commit typecheck gate.
+>
+> **Workflow Parity:** Session continuity (context survives resets), parallel DAG dispatch (concurrency 4), relay ACK with dead letter queue (SQLite mail, 60s timeout, auto-retry), context visibility (model-aware token tracking, 70%/85% warnings).
+>
+> **Full Pipeline:** Review loop with APPROVE/CORRECTION directives, spec workflow (SQLite persistence + SpecPanel), fast-track detection (auto-classify single-file tasks), status dashboard (5-section grid, auto-refresh).
 
 <br />
 
@@ -232,6 +238,29 @@ Every relay between agents is visible. You see exactly what Manager told the Bui
 
 <br />
 
+### 🛡️ Safety Gates (NEW in v1.2.0)
+
+Meridian now has **four layers of safety** between agent code and your codebase:
+
+- **Worktree Isolation** — each builder agent works in its own git worktree. No clobbering.
+- **Merge Approval UI** — diff review, approve/reject before any code lands on main
+- **Relay Approval Panel** — intercept, edit, or drop any message between agents
+- **Typecheck Gate** — `tsc --noEmit` runs in the merge flow. Broken code doesn't land.
+
+<br />
+
+### 🔄 Parallel DAG Dispatch (NEW in v1.2.0)
+
+Manager can now dispatch **up to 4 agents simultaneously** with dependency-aware scheduling. Tasks that don't depend on each other run in parallel. Agent locking prevents conflicts. Worktree-aware dispatch keeps builders isolated.
+
+<br />
+
+### 📡 Relay ACK + Dead Letter Queue (NEW in v1.2.0)
+
+Every inter-agent message is now **acknowledged**. SQLite-backed mail routing with 60-second timeouts, automatic retry, and a dead letter queue for messages that can't be delivered. No more fire-and-forget.
+
+<br />
+
 ### 🎯 Dynamic Team Composition
 
 There is no static agent list. No YAML files to configure. No "agent definitions" to write. **Manager is the only default agent.** When you describe your project, Manager assembles the right team:
@@ -425,7 +454,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 │  │  🔧 Electron  │         │  🎨 React 19 + Canvas 2D   │ │
 │  │  Main Process │   IPC   │                            │ │
 │  │               │◄───────►│  Topology · Chat ·         │ │
-│  │  Agent        │   53    │  Terminal · Settings ·     │ │
+│  │  Agent        │   117   │  Terminal · Settings ·     │ │
 │  │  Spawner      │  chan   │  Vault · Status Bar        │ │
 │  └──────┬───────┘         └────────────────────────────┘ │
 │         │                                                │
@@ -444,89 +473,10 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 | ⚛️ UI | **React 19 + TypeScript + Tailwind 4** | Modern stack, domain-specific Zustand stores |
 | 🗺️ Topology | **Canvas 2D** | Lightweight rendering — not WebGL, small bundle |
 | 🔌 Bridge | **117 IPC channels** | Typed, validated, bidirectional |
-| 🤖 Agents | **Real CLI subprocesses** | Isolated dirs, health monitoring, auto-restart |
+| 🤖 Agents | **Real CLI subprocesses** | Isolated worktrees, health monitoring, auto-restart |
+| 🗄️ Storage | **SQLite (WAL mode)** | Specs, sessions, relay mail, agent state — all ACID |
 
 > **No in-memory agent simulation.** No JSON file state management pretending to be orchestration. Real processes, real IPC, real results.
-
-<br />
-
----
-
-<br />
-
-## 🧬 Built on the Best of Open Source
-
-We studied **80+ open-source projects** across the multi-agent ecosystem — orchestration frameworks, memory systems, task engines, terminal emulators, visualization libraries, and production Electron apps. Then we took the best ideas and rebuilt them into Meridian's architecture.
-
-Not forked. Not wrapped. **Studied, understood, and reimplemented** to fit a native desktop orchestrator.
-
-| What We Built | Inspired By | What We Learned |
-|:---|:---|:---|
-| 🗄️ SQLite persistence + WAL mode | **LangGraph** checkpointing | State machine snapshots survive crashes — flat JSON doesn't |
-| 📬 Typed protocol messages | **Overstory** SQLite mail system | ACID message delivery in ~1ms beats parsing free text |
-| 📊 DAG task queue | **p-queue** + **toposort** | ~500 lines beats deploying Redis. Local-only, zero infra |
-| 🔁 Retry + dead letter queue | **Temporal**, **Inngest** | Exponential backoff + jitter is the universal standard for a reason |
-| 🩺 Agent health scoring | **Overstory** tiered monitoring | Mechanical heartbeat → AI-assisted → patrol. Three tiers, not one |
-| 🔭 Embedded observability | **OpenLLMetry** (OpenTelemetry) | Traces to local SQLite. Per-agent cost tracking. 2-hour integration |
-| 📐 Topology layout | **elkjs** Sugiyama algorithm | Proper hierarchical layout handles any team shape automatically |
-| 🔀 Git integration | **simple-git** + **Aider** patterns | Atomic `git apply` for multi-file agent changes. All-or-nothing commits |
-| 🖥️ PTY management | **Tabby** three-layer system | Backpressure (`ackData`) prevents memory explosion at 10+ agents |
-| 💥 Crash recovery | **VS Code** / **Chrome** patterns | Crash flag on startup, delete on clean exit, safe mode if flag persists |
-| 🔄 Plan-Execute-Observe-Replan | **Magentic-One** (Microsoft) | Explicit state machine > ad-hoc dispatch. Agents recover from failures |
-
-### Projects we studied deeply
-
-<details>
-<summary><strong>Multi-agent orchestration</strong> — CrewAI, AutoGen/AG2, LangGraph, MetaGPT, Magentic-One, OpenAI Swarm, ChatDev, Overstory, ComposioHQ, AgentScope, Swarms, Pydantic AI, Dify, MassGen, Microsoft Agent Framework</summary>
-<br />
-
-We analyzed how each framework handles routing, memory, error recovery, and inter-agent communication. LangGraph's checkpoint pattern and Overstory's SQLite mail were the standout ideas. Most frameworks manage agents as in-memory objects — we went the opposite direction with real subprocesses, which ComposioHQ and Overstory validated as the right call.
-
-</details>
-
-<details>
-<summary><strong>Memory systems</strong> — Mem0, Letta (MemGPT), Zep, Hindsight, Zikkaron, Cortex, Memvid, ChromaDB, LanceDB, Qdrant</summary>
-<br />
-
-Mem0's multi-tenant scoping and Letta's two-tier memory (RAM-like core + disk-like archival) shaped our Scribe architecture. Zikkaron's hippocampal replay for surviving context compaction is on our v2 roadmap. For v1, we chose human-readable markdown on disk over opaque vector databases — you can grep your project memory.
-
-</details>
-
-<details>
-<summary><strong>Task engines</strong> — Temporal, Inngest, BullMQ, Hatchet, embedded-queue, node-persistent-queue, liteque, dagx, toposort</summary>
-<br />
-
-Every production queue uses the same retry pattern: exponential backoff with jitter and a dead letter queue. We adopted that universal standard. For DAG resolution, toposort + p-queue gives us dependency ordering and concurrency control in ~500 lines — no Redis, no cloud, no external infra.
-
-</details>
-
-<details>
-<summary><strong>Terminal & Electron</strong> — Tabby, Wave Terminal, Hyper, VS Code, Bitwarden, Insomnia, electron-store</summary>
-<br />
-
-Tabby's three-layer PTY system (manager → wrapper → data queue with backpressure) prevents memory explosion when running 10+ agents. VS Code's MessagePort IPC and crash recovery patterns informed our stability architecture. We're an Electron app that takes production patterns from apps with millions of users.
-
-</details>
-
-<details>
-<summary><strong>Visualization & code gen</strong> — React Flow, Cytoscape.js, G6, elkjs, dagre, Sigma.js, vis-network, Cline, Aider, Continue.dev, bolt.diy, simple-git</summary>
-<br />
-
-We stayed with raw Canvas 2D (validated by the research — lighter than WebGL for 20-50 nodes) but adopted elkjs for proper Sugiyama hierarchical layout. Aider's git-first approach (auto-commit with meaningful messages, atomic multi-file apply) shaped our git integration.
-
-</details>
-
-<details>
-<summary><strong>Observability</strong> — OpenLLMetry, Langfuse, Phoenix, AgentOps, Helicone</summary>
-<br />
-
-OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, zero telemetry collection, 2-hour integration. We get correlation IDs, per-agent cost tracking, and full trace visibility without shipping your data anywhere.
-
-</details>
-
-<br />
-
-> **Every project listed above is MIT, Apache 2.0, BSD, or similarly permissive licensed.** We didn't copy code — we studied architectures, understood the patterns, and rebuilt them from scratch for a native desktop orchestrator. That's how good software gets built. Standing on the shoulders of the open-source community. 🙏
 
 <br />
 
@@ -544,6 +494,8 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 | ⚡ Real parallel agents | ✅ | ✅ | ✅ | ✅ | ⚠️ Partial |
 | 🧠 Shared memory (Scribe) | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 📦 Workflow templates | ✅ | ❌ | ❌ | ❌ | ❌ |
+| 🛡️ Merge approval + typecheck gate | ✅ | ❌ | ❌ | ❌ | ❌ |
+| 📡 Relay ACK + dead letter queue | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 🔀 Per-agent model selection | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 🖥️ Native desktop app | ✅ | CLI | TUI | Tauri | Web |
 | 🎛️ Human-in-the-loop | ✅ | ⚠️ Limited | ✅ | ✅ | ⚠️ Limited |
@@ -558,64 +510,44 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 
 ## 🗺️ Roadmap
 
-### ✅ v1.0.1 — First Public Release
+### ✅ v1.0 — Foundation
 - [x] 🗺️ Visual agent topology with real-time status
 - [x] 🎯 Dynamic team composition via Manager
 - [x] 🧠 Scribe agent for shared structured memory
-- [x] 🔀 Per-agent model selection (Opus, Sonnet, Haiku per agent)
-- [x] ✨ 7-phase animated onboarding flow
-- [x] 🔐 Supabase auth (GitHub OAuth + email)
-- [x] 💬 Chat persistence and auto-scroll
+- [x] 🔀 Per-agent model selection (Opus, Sonnet, Haiku)
 - [x] 🖥️ Embedded terminal
-- [x] ⚙️ Agent config editor and customization
-- [x] 📦 Auto-updater
-- [x] 🔀 Hierarchical team routing (sub-agents → leads → Manager)
-- [x] 🩺 Self-healing agents (retry, backoff, model fallback)
-- [x] 🔄 Context rotation (auto session dump at 85% usage)
-- [x] 🧪 14 end-to-end tests passed, including 20-agent stress test
+- [x] 🔐 Supabase auth (GitHub OAuth + email)
+- [x] 📦 One-click workflow templates — 8 built-in, 60 agents
+- [x] 🔒 V8 bytecode + encrypted ASAR
+- [x] 🪟 Windows + Linux support
 
-### ✅ v1.0.3 — Infrastructure + Templates
-- [x] 🗄️ SQLite persistence — projects, agents, chat, sessions survive restarts
-- [x] 📬 SQLite mail system — typed protocol messages between agents (ACID delivery)
-- [x] 📊 DAG task queue — p-queue + toposort with dependency resolution
-- [x] 🔁 Dead letter queue — exponential backoff retry with jitter
-- [x] 🩺 Agent health scoring — success/failure/stale tracking, persisted to DB
-- [x] 🔭 Correlation IDs + spans table — per-agent tracing and cost tracking
-- [x] 🔄 Plan-Execute-Observe-Replan — dispatch state machine for Manager
-- [x] 🔀 Git integration — simple-git, status pill, commit dialog, push/pull from app
-- [x] 📚 Obsidian integration — vault picker, Scribe auto-sync, live file browser
-- [x] 📐 elkjs Sugiyama layout — automatic hierarchical topology positioning
-- [x] 🔍 Zoom + pan — cursor-relative scaling (0.3x–3x), drag to pan
-- [x] 🎬 GSAP spawn/exit animations — nodes scale in/out on agent lifecycle
-- [x] 💰 Per-agent cost breakdown — model-aware pricing in token popover
-- [x] 🔔 Badge indicators — unread counts and error dots on icon rail
-- [x] 📦 One-click workflow templates — import any skill pack, each role becomes a real agent
-- [x] 🔥 8 built-in templates — 60 agents from 430k+ combined GitHub stars
-- [x] 🧠 Elite Manager system prompt — intent classification, task graph decomposition, adaptive replanning, recovery playbook
+### ✅ v1.1.0 — Scribe Mentat + Reliability
+- [x] 🧠 Scribe Mentat wired — CONSULT/TEACH markers, knowledge injection
+- [x] ⏱️ Request timeout (5 min) + circuit breaker (5 failures → cooldown)
+- [x] 🔁 Manual retry re-sends messages
+- [x] 📁 Files panel fixed — `~` paths resolve correctly
+- [x] 🔄 Multi-project switching, per-project sessions, reinstall detection
+- [x] 🧙 Intelligence System — Effort Level + Wizard Mode adversarial verification
 
-### ✅ v1.0.4 — Security + Windows
-- [x] 🔒 V8 bytecode compilation (bytenode) — 28 files protected
-- [x] 📦 Encrypted ASAR packaging
-- [x] 🪟 Windows support — NSIS installer via GitHub Actions
-
-### ✅ v1.0.6 — Scribe Mentat
-- [x] 🧠 Scribe Mentat — knowledge store (5 JSONL categories), pattern detection, Wisdom API
-- [x] 📜 Ethos System — project principles injected into every agent's prompt
-- [x] 🎓 Spawn Injection — top 5 relevant knowledge entries briefed to agents at boot
-- [x] 📊 ScribePanel 4 tabs — Timeline, Knowledge, Insights, Stats
-- [x] 🗑️ Delete Project — full cleanup, multi-project safe
-
-### ✅ v1.0.8 — Intelligence System
-- [x] 🎚️ Effort Level — 3-tier control (Standard / Extended / Maximum) injected into all agent system prompts
-- [x] 🧙 Wizard Mode — adversarial verification: Critic agent spawns to attack every output, 3-round max, requires VERDICT: APPROVED
-- [x] 🛡️ ErrorBoundary — component crash recovery with styled reload screen
-- [x] 🗄️ Full project deletion — transactional SQLite cleanup across all 11 tables
-- [x] 🔄 Project lifecycle fixes — Scribe panel reset on switch, state clear before load
+### ✅ v1.2.0 — Battle Readiness (31 commits, ~2,300 lines)
+- [x] 🛡️ Worktree isolation — agents work in isolated git worktrees
+- [x] ✅ Merge approval UI — diff review, approve/reject before landing
+- [x] 📨 Relay approval panel — intercept, edit, or drop any inter-agent message
+- [x] 🔍 Typecheck gate — `tsc --noEmit` in merge flow, pass/fail badge
+- [x] 💾 Session continuity — context snapshot survives resets
+- [x] ⚡ Parallel DAG — concurrency 4, agent locking, worktree-aware dispatch
+- [x] 📡 Relay ACK — SQLite mail routing, 60s timeout, auto-retry, dead letter queue
+- [x] 📊 Context visibility — model-aware token calc, 70%/85% warnings, status bar
+- [x] 🔄 Review loop — pipeline templates, execution engine, APPROVE/CORRECTION
+- [x] 📝 Spec workflow — SQLite persistence, SpecPanel, auto-save directives
+- [x] ⚡ Fast-track detection — auto-classify single-file tasks, `!fast`/`!full` override
+- [x] 📋 Status dashboard — 5-section grid, auto-refresh
 
 ### 🔜 Coming Soon
 - [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
-- [ ] 🌐 Multi-machine orchestration — cluster your Mac Minis, distribute agents across machines (think [exo](https://github.com/exo-explore/exo) but for coding agents)
-- [ ] 🪟 Windows + Linux support
+- [ ] 🌐 Multi-machine orchestration — cluster your Mac Minis, distribute agents across machines
+- [ ] 🧠 Context compaction — tiered eviction + LLM summarization (inspired by Claude Code internals)
+- [ ] 🪝 Hook system — lifecycle events, PreToolUse interception, middleware framework
 
 ### 🔮 Future
 - [ ] 🏪 Agent marketplace
@@ -648,11 +580,12 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 🛠️ Built With
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Electron-35-47848F?style=for-the-badge&logo=electron&logoColor=white" />
+  <img src="https://img.shields.io/badge/Electron-41-47848F?style=for-the-badge&logo=electron&logoColor=white" />
   <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
   <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
   <img src="https://img.shields.io/badge/Canvas_2D-native-F7DF1E?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/SQLite-WAL-003B57?style=for-the-badge&logo=sqlite&logoColor=white" />
   <img src="https://img.shields.io/badge/Supabase-auth-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" />
 </p>
 
@@ -665,7 +598,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download & Setup
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.1.0_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.2.0_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -716,7 +649,6 @@ claude auth login
 
 # Step 2: Download the DMG
 # → https://github.com/Fresh1289/meridian/releases/latest
-# → Download Meridian-1.1.0-arm64.dmg
 
 # Step 3: Install
 # Open the DMG → drag Meridian to Applications
@@ -770,88 +702,6 @@ chmod +x Meridian-*.AppImage
 sudo dpkg -i meridian_*.deb
 ```
 
-### Multi-Project Workflow
-
-Meridian supports multiple projects. Each project gets its own workspace, agents, and session state.
-
-- **Top bar** shows all your projects — click to switch
-- **Session state is saved per-project** — switch away, come back, everything is where you left it
-- **"+" button** in the top bar creates a new project
-- **Reinstall-safe** — if you update Meridian, it detects your existing projects automatically
-
-Projects live in `~/meridian-projects/`. Each project has its own `.meridian/` directory with agent configs, scribe data, and session files.
-
-### Built-in Support Agent
-
-Every Meridian installation includes a **self-diagnosing support system**. If something goes wrong:
-
-1. **Open the terminal** (Ctrl+\` or click the terminal icon)
-2. **Run `claude`** — Claude Code launches with full knowledge of your Meridian installation
-3. **Ask it anything** — "why isn't Manager responding?", "check my auth status", "show recent errors"
-
-Claude automatically reads a diagnostic `CLAUDE.md` that includes your app version, log file locations, database paths, common fixes, and architecture overview. It can inspect logs, check running processes, verify authentication, and guide you through fixes — **zero configuration required**.
-
-### Troubleshooting
-
-<details>
-<summary><strong>"Manager not replying" / agents stuck</strong></summary>
-<br />
-
-1. Open the terminal and run `claude auth status` — if not authenticated, run `claude auth login`
-2. Check if Claude processes exist: `ps aux | grep claude`
-3. Try quitting and relaunching Meridian
-4. Or open the terminal and run `claude` → ask it to diagnose the issue
-
-</details>
-
-<details>
-<summary><strong>"Not authenticated" error on first launch</strong></summary>
-<br />
-
-This usually means Claude Code can't find your PATH. Common with nvm or Homebrew installs.
-
-```bash
-# Fix: re-authenticate
-claude auth login
-
-# Verify:
-claude auth status
-```
-
-If it persists, open the terminal inside Meridian and run `claude auth login` directly.
-
-</details>
-
-<details>
-<summary><strong>App won't open on macOS ("damaged" or "unidentified developer")</strong></summary>
-<br />
-
-Meridian is currently unsigned (Apple Developer enrollment pending). Fix with:
-
-```bash
-xattr -cr /Applications/Meridian.app
-```
-
-Then right-click → Open → "Open" in the dialog.
-
-</details>
-
-<details>
-<summary><strong>How to update</strong></summary>
-<br />
-
-Download the latest release from [GitHub Releases](https://github.com/Fresh1289/meridian/releases/latest). On macOS, drag the new `.app` over the old one in `/Applications`. All your projects and settings are preserved — the app data lives in `~/meridian-projects/` and `~/Library/Application Support/meridian/`, not inside the app bundle.
-
-</details>
-
-<details>
-<summary><strong>Files panel is empty</strong></summary>
-<br />
-
-This can happen if the project directory path wasn't resolved correctly. Fix: delete the project and recreate it in v1.0.9+, which uses the correct absolute path.
-
-</details>
-
 <br />
 
 ---
@@ -893,14 +743,6 @@ The source code is currently private. This repo is a showcase of what Meridian i
 </details>
 
 <details>
-<summary><strong>What operating systems are supported?</strong></summary>
-<br />
-
-**macOS (Apple Silicon)**, **Windows (x64)**, and **Linux (x64)** — AppImage and .deb packages available.
-
-</details>
-
-<details>
 <summary><strong>How is this different from just running multiple Claude Code sessions?</strong></summary>
 <br />
 
@@ -913,14 +755,6 @@ When you run multiple Claude Code sessions yourself, **you** are the communicati
 <br />
 
 Meridian itself is **free**. Your cost is the AI usage — same as running Claude Code directly. A typical 10-agent session building a medium-sized feature costs roughly what 10 individual Claude Code sessions would cost. The difference is Meridian makes those 10 sessions work together instead of in isolation.
-
-</details>
-
-<details>
-<summary><strong>Can I customize how agents behave?</strong></summary>
-<br />
-
-Yes. Each agent has its own config that Manager can rewrite on the fly. Tell Manager "I don't like how the designer writes CSS" and it will update the designer's system prompt immediately. You can also edit agent configs directly from the settings panel.
 
 </details>
 
@@ -962,7 +796,7 @@ Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly
 </p>
 
 <p align="center">
-  <code>590+ commits · 142 source files · 117 IPC channels · 79 React components</code>
+  <code>620+ commits · 142 source files · 117 IPC channels · 79 React components</code>
   <br />
   <code>11 SQLite tables · 14 end-to-end tests · 20-agent stress test cleared</code>
   <br /><br />
