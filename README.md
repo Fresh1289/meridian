@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.7-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.8-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="#-download"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.7-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.0.8-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_|_Windows-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
   <img src="https://img.shields.io/badge/commits-590+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
@@ -31,7 +31,7 @@
 
 <br />
 
-> ### What's New in v1.0.7
+> ### What's New in v1.0.8
 >
 > **Intelligence System.** Three-tier **Effort Level** (Standard / Extended / Maximum) controls how deeply agents reason — injected into every system prompt. **Wizard Mode** enables adversarial verification: Manager spawns a **Critic agent** that assumes every output is wrong and attacks it. The original agent defends. They iterate up to 3 rounds until the Critic issues `VERDICT: APPROVED`. Every output is battle-tested before delivery. Plus: full **project lifecycle fixes** — SQLite cleanup on delete, Scribe panel reset on project switch, ErrorBoundary crash recovery, and agent color consolidation.
 
@@ -605,7 +605,7 @@ OpenLLMetry won: OpenTelemetry-based, vendor-agnostic, exports to local SQLite, 
 - [x] 📊 ScribePanel 4 tabs — Timeline, Knowledge, Insights, Stats
 - [x] 🗑️ Delete Project — full cleanup, multi-project safe
 
-### ✅ v1.0.7 — Intelligence System
+### ✅ v1.0.8 — Intelligence System
 - [x] 🎚️ Effort Level — 3-tier control (Standard / Extended / Maximum) injected into all agent system prompts
 - [x] 🧙 Wizard Mode — adversarial verification: Critic agent spawns to attack every output, 3-round max, requires VERDICT: APPROVED
 - [x] 🛡️ ErrorBoundary — component crash recovery with styled reload screen
@@ -665,34 +665,51 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.0.7_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.0.8_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-v1.0.7_Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-v1.0.8_Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
 </p>
 
 ### Requirements
 
 - **macOS** (Apple Silicon — M1/M2/M3/M4) or **Windows** (x64)
-- **Claude CLI** installed and authenticated ([install guide](https://docs.anthropic.com/en/docs/claude-code))
+- **Node.js** 18+ ([download](https://nodejs.org/))
+- **Claude Code** installed via npm (**required — the standalone curl installer is not supported**):
+  ```bash
+  npm install -g @anthropic-ai/claude-code
+  ```
+- **Claude CLI authenticated** — run `claude auth login` after installing
 - **Claude Max plan** or an Anthropic API key
+
+> ⚠️ **Important:** Meridian requires the **npm version** of Claude Code, not the standalone installer (`curl -fsSL https://claude.ai/install.sh`). If you installed via curl, run `npm install -g @anthropic-ai/claude-code` to switch.
 
 ### Setup — Mac
 
-1. **Download** `Meridian-1.0.7-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
-2. **Open** the DMG and drag Meridian to your Applications folder
-3. **Bypass Gatekeeper** (app is unsigned — Apple Developer enrollment pending):
+1. **Install Claude Code** (if you haven't):
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   claude auth login
+   ```
+2. **Download** `Meridian-1.0.8-arm64.dmg` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+3. **Open** the DMG and drag Meridian to your Applications folder
+4. **Bypass Gatekeeper** (app is unsigned — Apple Developer enrollment pending):
    - Right-click Meridian.app → **Open** → Click **"Open"** in the dialog
    - Or run in Terminal: `xattr -cr /Applications/Meridian.app`
-4. **Launch** Meridian — sign in with GitHub or email
-5. **Create a project** — name it, describe what you're building, pick a directory
-6. **Start building** — Manager deploys the right team and you're off
+5. **Launch** Meridian — sign in with GitHub or email
+6. **Create a project** — name it, describe what you're building, pick a directory
+7. **Start building** — Manager deploys the right team and you're off
 
 ### Setup — Windows
 
-1. **Download** `Meridian.Setup.1.0.7.exe` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
-2. **Run the installer** — Windows may show a SmartScreen warning (click "More info" → "Run anyway")
-3. **Launch** Meridian — sign in with GitHub or email
-4. **Create a project** and start building
+1. **Install Claude Code** (if you haven't):
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   claude auth login
+   ```
+2. **Download** `Meridian.Setup.1.0.8.exe` from the [latest release](https://github.com/Fresh1289/meridian/releases/latest)
+3. **Run the installer** — Windows may show a SmartScreen warning (click "More info" → "Run anyway")
+4. **Launch** Meridian — sign in with GitHub or email
+5. **Create a project** and start building
 
 ### Updates
 
