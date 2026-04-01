@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.0.9-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download"><img src="https://img.shields.io/badge/Download-v1.1.0-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="#-download"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.9-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.1.0-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_|_Windows_|_Linux-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
   <img src="https://img.shields.io/badge/commits-590+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
@@ -31,9 +31,9 @@
 
 <br />
 
-> ### What's New in v1.0.9
+> ### What's New in v1.1.0
 >
-> **Multi-Project.** Full project switching — create multiple projects, switch between them from the top bar, and each project preserves its own session state (chat history, agents, UI). No more losing progress when switching. **Reinstall detection** — existing projects are found automatically on fresh install, skipping re-onboarding. **Support Agent** — every Meridian installation now writes a diagnostic `CLAUDE.md` to the projects root. Open the built-in terminal, run `claude`, and ask it to diagnose any issue — it knows where logs, databases, and session files live. Self-healing, zero-config support.
+> **Scribe Mentat is live.** The knowledge loop is fully wired — Manager now consults Scribe before decisions and teaches it after. Scribe flashes "Consulting..." / "Learning..." on the topology. **Reliability hardening:** 5-minute request timeouts, circuit breaker (5 failures → 2-min cooldown), manual retry actually re-sends messages. **Files panel fixed** — `~` paths now resolve correctly. Plus all v1.0.9 features: multi-project switching, per-project sessions, reinstall detection, and the built-in Support Agent.
 
 <br />
 
@@ -665,7 +665,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 ## 📥 Download & Setup
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.0.9_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.1.0_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -716,7 +716,7 @@ claude auth login
 
 # Step 2: Download the DMG
 # → https://github.com/Fresh1289/meridian/releases/latest
-# → Download Meridian-1.0.9-arm64.dmg
+# → Download Meridian-1.1.0-arm64.dmg
 
 # Step 3: Install
 # Open the DMG → drag Meridian to Applications
