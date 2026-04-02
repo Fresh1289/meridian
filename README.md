@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-v1.3.4_Beta-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-v1.4.0_Beta-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -25,9 +25,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.3.4-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.4.0-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_|_Windows_|_Linux-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
-  <img src="https://img.shields.io/badge/commits-720+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
+  <img src="https://img.shields.io/badge/commits-740+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
   <img src="https://img.shields.io/badge/IPC_channels-130+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
   <img src="https://img.shields.io/badge/Electron_41-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
@@ -35,15 +35,17 @@
 
 <br />
 
-> ### What's New in v1.3.4 — Laniakea
+> ### What's New in v1.4.0 — Full Stack
 >
-> **Introducing Laniakea** — an LLM-powered knowledge engine with total recall.
+> **Every feature area at 10/10.** Git workflow, Obsidian two-way sync, and Laniakea intelligence — all fully wired.
 >
-> **Laniakea Intelligence:** LLM-powered CONSULT (synthesized answers with citations), predictive warnings (risk analysis from historical failures), contradiction detection (auto-flags conflicting decisions), decision journaling, conversational `/lk` chat interface, feedback loop (👍/👎 adjusts confidence), smart spawn briefing (agents get relevant lessons on start), cross-project knowledge transfer.
+> **Git:** Commit history with inline diffs, branch switcher, auto-commit in agent worktrees, PR creation via `gh` CLI.
 >
-> **Command Palette:** Cmd+K — fuzzy search across panels, actions, agents, with keyboard navigation.
+> **Obsidian:** Knowledge entries as proper `.md` with YAML frontmatter + wikilinks. Auto-generated session notes. state.md auto-sync. Two-way: edit in Obsidian → Laniakea picks it up. Topology → Canvas export.
 >
-> **Everything Wired:** Merge approval, relay approval, worktree isolation, pipeline automation, spec injection — every feature verified working end-to-end. Zero cosmetic features.
+> **Laniakea:** LLM-powered CONSULT, predictive warnings, contradiction detection, conversational `/lk` chat, feedback loop, smart spawn briefing, cross-project knowledge transfer, Drive tab.
+>
+> **Command Palette:** Cmd+K — fuzzy search across everything.
 
 <br />
 
@@ -580,6 +582,17 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 - [x] ✅ All audit items resolved — merge/relay approval, sign out, API key, fast-track
 - [x] 🩺 Diagnostics panel + OTA patch system
 
+### ✅ v1.4.0 — Full Stack
+- [x] 📜 Git commit history panel with expandable inline diffs
+- [x] 🔀 Branch switcher — list, checkout, create from status pill
+- [x] 🤖 Auto-commit toggle — agent worktree changes committed automatically
+- [x] 🔗 PR creation via `gh` CLI from the app
+- [x] 📝 Obsidian knowledge as proper `.md` with YAML frontmatter + wikilinks
+- [x] 📅 Auto-generated session notes on app quit
+- [x] 🔄 state.md auto-sync with 30s debounce
+- [x] ↔️ Two-way Obsidian sync — edit in Obsidian → Laniakea imports via fs.watch
+- [x] 🗺️ Topology → Obsidian Canvas export
+
 ### 🔜 Coming Soon
 - [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
 - [ ] 🌐 Multi-machine orchestration — cluster your Mac Minis, distribute agents across machines
@@ -637,7 +650,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 > **⚠️ Beta Software.** Meridian is under active development. Expect rough edges, breaking changes between versions, and occasional bugs. We ship fast and fix fast — check for updates regularly. Report issues on [GitHub](https://github.com/Fresh1289/meridian/issues) or [Discord](https://discord.gg/nvkEWVu5Wx).
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.3.4_Beta-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.4.0_Beta-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -835,7 +848,7 @@ Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly
 </p>
 
 <p align="center">
-  <code>720+ commits · 165+ source files · 130+ IPC channels · 85+ React components</code>
+  <code>740+ commits · 170+ source files · 140+ IPC channels · 87+ React components</code>
   <br />
   <code>11 SQLite tables · 14 end-to-end tests · 20-agent stress test cleared</code>
   <br /><br />
