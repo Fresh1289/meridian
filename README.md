@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-v1.3.2_Beta-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-v1.3.4_Beta-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -25,25 +25,25 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-1.3.2-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
+  <img src="https://img.shields.io/badge/version-1.3.4-0a0a0f?style=flat-square&labelColor=1a1a2e&color=7c3aed" />
   <img src="https://img.shields.io/badge/platform-macOS_|_Windows_|_Linux-0a0a0f?style=flat-square&labelColor=1a1a2e&color=4f46e5" />
-  <img src="https://img.shields.io/badge/commits-680+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
+  <img src="https://img.shields.io/badge/commits-720+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=059669" />
   <img src="https://img.shields.io/badge/agents_tested-20-0a0a0f?style=flat-square&labelColor=1a1a2e&color=f59e0b" />
-  <img src="https://img.shields.io/badge/IPC_channels-120+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
+  <img src="https://img.shields.io/badge/IPC_channels-130+-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
   <img src="https://img.shields.io/badge/Electron_41-React_19-0a0a0f?style=flat-square&labelColor=1a1a2e&color=0ea5e9" />
 </p>
 
 <br />
 
-> ### What's New in v1.3.2 — Hardened Meridian
+> ### What's New in v1.3.4 — Laniakea
 >
-> **Security hardened + reliability infrastructure.** 9 audit items closed, 3 user-reported bugs fixed.
+> **Laniakea has been reborn as Laniakea** — an LLM-powered knowledge engine with total recall.
 >
-> **Security:** Shell injection fix, 18 async IPC handlers wrapped in try-catch, PTY env whitelist (no API key leakage), symlink-safe path validation.
+> **Laniakea Intelligence:** LLM-powered CONSULT (synthesized answers with citations), predictive warnings (risk analysis from historical failures), contradiction detection (auto-flags conflicting decisions), decision journaling, conversational `/lk` chat interface, feedback loop (👍/👎 adjusts confidence), smart spawn briefing (agents get relevant lessons on start), cross-project knowledge transfer.
 >
-> **Reliability:** Relay ACK + deadletter queue (SQLite-backed, 60s/120s/240s backoff), session snapshot injection (context survives resets), per-project file locks, worktree orphan cleanup.
+> **Command Palette:** Cmd+K — fuzzy search across panels, actions, agents, with keyboard navigation.
 >
-> **UX:** Dark-themed Deploy Agent dropdown, keyboard shortcuts wired (Ctrl/Cmd+1-9), cancel button on Create Project, chat input z-index fix.
+> **Everything Wired:** Merge approval, relay approval, worktree isolation, pipeline automation, spec injection — every feature verified working end-to-end. Zero cosmetic features.
 
 <br />
 
@@ -52,7 +52,7 @@
 </p>
 
 <p align="center">
-  <sub>☝️ One prompt. 10 agents deployed. Full hierarchical team with leads, builders, QA, designer, and scribe.</sub>
+  <sub>☝️ One prompt. 10 agents deployed. Full hierarchical team with leads, builders, QA, designer, and laniakea.</sub>
 </p>
 
 <br />
@@ -97,9 +97,9 @@ You see everything happening in real time on a **visual topology**. One chat. Fu
 | 📋 | Copy-pasting between agents | Automatic routing |
 | 🧠 | You decide who does what | Manager decides |
 | 🔀 | You resolve merge conflicts | Manager handles git |
-| 💭 | Context lost across sessions | Scribe remembers everything |
+| 💭 | Context lost across sessions | Laniakea remembers everything |
 | 🔇 | Agents don't know about each other | Full inter-agent communication |
-| 📄 | Reading docs to configure YAML | Describe your project in English |
+| 📄 | Reading docs to configure YAML | Delaniakea your project in English |
 
 <br />
 
@@ -163,7 +163,7 @@ Meridian (real agents):        Planner ━━━━━━┓
 1. **Pick a template** — browse the 8 built-in options in the Templates panel
 2. **Click Apply** — Manager reads the template and deploys every agent
 3. **Real agents spawn** — each role becomes a live subprocess on the topology
-4. **Start building** — the team is ready. Just describe what you want.
+4. **Start building** — the team is ready. Just delaniakea what you want.
 
 Or **paste any GitHub URL** — Meridian clones the repo, parses the skill files, and builds a custom template on the fly.
 
@@ -175,7 +175,7 @@ Or **paste any GitHub URL** — Meridian clones the repo, parses the skill files
 |:---|:---|:---|
 | 🤖 Roles | 1 agent switching personas | **Each role = real parallel agent** |
 | ⚡ Speed | Sequential — one role at a time | **Parallel — all roles simultaneously** |
-| 🧠 Memory | Context lost between role switches | **Scribe tracks all inter-agent communication** |
+| 🧠 Memory | Context lost between role switches | **Laniakea tracks all inter-agent communication** |
 | 🗺️ Visibility | Terminal output scrolling past | **Live topology map of every agent** |
 | 🔄 Recovery | Start over if context resets | **Auto-restart with exponential backoff** |
 | 📊 Cost tracking | None | **Per-agent token + cost breakdown** |
@@ -267,38 +267,40 @@ Every inter-agent message is now **acknowledged**. SQLite-backed mail routing wi
 
 ### 🎯 Dynamic Team Composition
 
-There is no static agent list. No YAML files to configure. No "agent definitions" to write. **Manager is the only default agent.** When you describe your project, Manager assembles the right team:
+There is no static agent list. No YAML files to configure. No "agent definitions" to write. **Manager is the only default agent.** When you delaniakea your project, Manager assembles the right team:
 
 | Project Type | Team Deployed |
 |:---|:---|
-| 🔧 Backend-heavy | Manager + 3 Builders + QA + Scribe |
-| 🎨 Frontend/design-heavy | Manager + Builder + 2 Designers + QA + Scribe |
+| 🔧 Backend-heavy | Manager + 3 Builders + QA + Laniakea |
+| 🎨 Frontend/design-heavy | Manager + Builder + 2 Designers + QA + Laniakea |
 | 🩹 Quick fix | Manager + Builder |
-| 🏗️ Full-stack | Manager + 2 Builders + Designer + QA + Scribe |
+| 🏗️ Full-stack | Manager + 2 Builders + Designer + QA + Laniakea |
 
-Agents appear on the topology as they're deployed. Manager can add, remove, or reassign agents mid-project based on what's needed. **You don't pre-configure your team — you describe your goal and the team materializes.**
+Agents appear on the topology as they're deployed. Manager can add, remove, or reassign agents mid-project based on what's needed. **You don't pre-configure your team — you delaniakea your goal and the team materializes.**
 
 <br />
 
-### 🧠 Scribe Mentat — Institutional Memory
+### 🧠 Laniakea — The Knowledge Engine
 
-Scribe is your project's **Mentat** — not just a logger, but a knowledge engine with total recall. It absorbs all communication between agents and **synthesizes wisdom on demand**.
+Laniakea is Meridian's crown jewel — an LLM-powered knowledge engine with total recall. Named after the cosmic supercluster that contains everything, it watches all agent communication and builds intelligence that compounds over time.
 
-**Three layers:**
-- **Event Stream** — raw timeline of every relay, spawn, error, and message
-- **Knowledge Store** — categorized JSONL files: decisions, patterns, failures, preferences, insights
-- **Wisdom API** — `consult(topic)`, `learn(entry)`, `wisdom()`, `brief(role)`, `stats()`
+**Five capabilities:**
+- **LLM-Powered CONSULT** — Ask anything. Laniakea retrieves relevant knowledge, sends it through Haiku for synthesis, and returns a cited, contextual answer. Not keyword search — actual reasoning.
+- **Predictive Warnings** — Before you execute a plan, Laniakea checks it against historical failures: "3 similar plans failed. Common cause: no QA loop."
+- **Contradiction Detection** — If Manager contradicts a past decision, Laniakea flags it in real-time: "This conflicts with the auth decision from March 30."
+- **Decision Journaling** — Auto-extracts structured decisions from Manager output. Full audit trail of what was decided, why, and what alternatives were considered.
+- **Conversational `/lk`** — Talk to Laniakea directly in chat. Ask "Why did we choose SQLite?" and get a synthesized narrative with source citations.
 
-**Pattern Detection** runs on every event (lightweight regex, no LLM) — catches recurring errors, user corrections, decision trends, and agent loops. Stores findings as searchable knowledge.
+**It learns from feedback:** 👍/👎 on knowledge entries adjusts confidence scores. Good knowledge rises, bad knowledge decays. The system gets smarter the more you use it.
 
-**Ethos System** — `.meridian/ethos.md` defines project principles. Injected into every agent's system prompt. Editable in the Files panel.
+**Smart Spawn Briefing** — When any agent spawns, Laniakea injects the top 5 most relevant lessons for that role. Agents start with context, not a blank slate.
 
-**Spawn Injection** — when any agent spawns, Scribe's top 5 relevant knowledge entries + project ethos are injected into its system prompt. Agents start with context, not a blank slate.
+**Cross-Project Transfer** — Knowledge learned in Project A is available in Project B. Import with one click. Good patterns spread automatically.
 
-**ScribePanel** now has 4 tabs: Timeline, Knowledge (filterable by category), Insights (with acknowledge), and Stats (velocity, category breakdown).
+**LaniakeaPanel** has 5 tabs: Timeline, Knowledge, Insights, Stats, and Drive (saved workflows + snippets + cross-project knowledge browser).
 
 > 📂 Plain text JSONL on disk. Read it yourself. Search it with grep. Sync it to Obsidian.
-> No proprietary binary format. No vector databases. No "memory engine" you can't inspect.
+> No proprietary binary format. No "memory engine" you can't inspect. LLM intelligence on top, not instead of.
 
 <br />
 
@@ -330,7 +332,7 @@ Meridian currently runs on **Claude Code** — the most capable coding agent ava
 
 - 🟣 **Opus** for Manager (planning + routing)
 - 🔵 **Sonnet** for Builders (fast code generation)
-- 🟡 **Haiku** for Scribe (lightweight logging)
+- 🟡 **Haiku** for Laniakea (lightweight logging)
 
 The right model for each job. Manager gets the big brain, builders get the fast one, utility agents get the cheap one. You control this per-agent from the settings panel.
 
@@ -414,13 +416,13 @@ Meridian detects your Claude CLI automatically. Optionally add an API key for pa
 
 <br />
 
-### Step 3 — Describe your project
+### Step 3 — Delaniakea your project
 
 <p align="center">
   <img src="assets/screenshot-onboarding-project.png" width="720" alt="Create Project" />
 </p>
 
-Name it, describe what you're building, pick a directory. Meridian scaffolds the workspace with `.meridian/`, `.agents/`, and a `CLAUDE.md`. No YAML agent definitions to write. No topology configs to learn. **Just tell it what you're building.** 💬
+Name it, delaniakea what you're building, pick a directory. Meridian scaffolds the workspace with `.meridian/`, `.agents/`, and a `CLAUDE.md`. No YAML agent definitions to write. No topology configs to learn. **Just tell it what you're building.** 💬
 
 <br />
 
@@ -430,7 +432,7 @@ Name it, describe what you're building, pick a directory. Meridian scaffolds the
   <img src="assets/screenshot-chat.png" width="100%" alt="10 agents spawned" />
 </p>
 
-Manager reads your description and deploys the right agents — Frontend Lead, Backend Lead, QA, Designer, Scribe, and sub-agents under each lead. **Each one is a real CLI process** with its own working directory. You watch the org chart populate in real time. 🎬
+Manager reads your description and deploys the right agents — Frontend Lead, Backend Lead, QA, Designer, Laniakea, and sub-agents under each lead. **Each one is a real CLI process** with its own working directory. You watch the org chart populate in real time. 🎬
 
 <br />
 
@@ -458,14 +460,14 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 │  │  🔧 Electron  │         │  🎨 React 19 + Canvas 2D   │ │
 │  │  Main Process │   IPC   │                            │ │
 │  │               │◄───────►│  Topology · Chat ·         │ │
-│  │  Agent        │   120+  │  Terminal · Settings ·     │ │
+│  │  Agent        │   130+  │  Terminal · Settings ·     │ │
 │  │  Spawner      │  chan   │  Vault · Status Bar        │ │
 │  └──────┬───────┘         └────────────────────────────┘ │
 │         │                                                │
 │  ┌──────┴──────────────────────────────────────────────┐ │
 │  │              🤖 Agent Processes                      │ │
 │  │                                                      │ │
-│  │  Manager · Builder · Designer · QA · Scribe          │ │
+│  │  Manager · Builder · Designer · QA · Laniakea          │ │
 │  │  (Claude Code — more providers coming soon)          │ │
 │  └──────────────────────────────────────────────────────┘ │
 └──────────────────────────────────────────────────────────┘
@@ -496,7 +498,9 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 | 🗺️ Visual topology | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 🎯 Dynamic team composition | ✅ | ❌ | ❌ | ❌ | ❌ |
 | ⚡ Real parallel agents | ✅ | ✅ | ✅ | ✅ | ⚠️ Partial |
-| 🧠 Shared memory (Scribe) | ✅ | ❌ | ❌ | ❌ | ❌ |
+| 🧠 LLM-powered knowledge engine | ✅ | ❌ | ❌ | ❌ | ❌ |
+| 🔮 Predictive warnings + contradiction detection | ✅ | ❌ | ❌ | ❌ | ❌ |
+| ⌨️ Command palette (Cmd+K) | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 📦 Workflow templates | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 🛡️ Merge approval + typecheck gate | ✅ | ❌ | ❌ | ❌ | ❌ |
 | 📡 Relay ACK + dead letter queue | ✅ | ❌ | ❌ | ❌ | ❌ |
@@ -517,7 +521,7 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 ### ✅ v1.0 — Foundation
 - [x] 🗺️ Visual agent topology with real-time status
 - [x] 🎯 Dynamic team composition via Manager
-- [x] 🧠 Scribe agent for shared structured memory
+- [x] 🧠 Laniakea agent for shared structured memory
 - [x] 🔀 Per-agent model selection (Opus, Sonnet, Haiku)
 - [x] 🖥️ Embedded terminal
 - [x] 🔐 Supabase auth (GitHub OAuth + email)
@@ -525,8 +529,8 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 - [x] 🔒 V8 bytecode + encrypted ASAR
 - [x] 🪟 Windows + Linux support
 
-### ✅ v1.1.0 — Scribe Mentat + Reliability
-- [x] 🧠 Scribe Mentat wired — CONSULT/TEACH markers, knowledge injection
+### ✅ v1.1.0 — Laniakea Mentat + Reliability
+- [x] 🧠 Laniakea Mentat wired — CONSULT/TEACH markers, knowledge injection
 - [x] ⏱️ Request timeout (5 min) + circuit breaker (5 failures → cooldown)
 - [x] 🔁 Manual retry re-sends messages
 - [x] 📁 Files panel fixed — `~` paths resolve correctly
@@ -558,6 +562,23 @@ Agents code, review, and test. Manager orchestrates. Connection lines animate as
 - [x] ⌨️ Full keyboard shortcuts (Ctrl/Cmd+1-9, 0, - for all panels)
 - [x] 💰 Cost controls — 500K token budget, $5-50 warnings, 20 agent limit
 - [x] 🎨 UI polish — dark dropdowns, z-index fixes, cancel button on project creation
+
+### ✅ v1.3.4 — Laniakea (35+ commits)
+- [x] 🧠 Laniakea — LLM-powered CONSULT (Haiku synthesis with source citations)
+- [x] 🔮 Predictive warnings — risk analysis from historical failures
+- [x] ⚡ Contradiction detection — auto-flags conflicting decisions
+- [x] 📓 Decision journaling — auto-extracts structured decisions
+- [x] 💬 Conversational `/lk` — talk to Laniakea directly in chat
+- [x] 👍 Feedback loop — thumbs up/down adjusts knowledge confidence
+- [x] 🎓 Smart spawn briefing — agents receive relevant lessons on start
+- [x] 🔄 Cross-project knowledge transfer — import with one click
+- [x] 🗂️ Drive — saved workflows, snippets, cross-project knowledge
+- [x] ⌨️ Command Palette (Cmd+K) — fuzzy search across everything
+- [x] 🔀 Worktree isolation active — code-writing agents get isolated branches
+- [x] 📋 Pipeline automation — Designer→Builder→QA with auto-advancement
+- [x] 📝 Spec auto-injection — active specs prepended on agent spawn
+- [x] ✅ All audit items resolved — merge/relay approval, sign out, API key, fast-track
+- [x] 🩺 Diagnostics panel + OTA patch system
 
 ### 🔜 Coming Soon
 - [ ] 🔓 Multi-provider support (Codex, Gemini CLI, any CLI agent alongside Claude)
@@ -616,7 +637,7 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 > **⚠️ Beta Software.** Meridian is under active development. Expect rough edges, breaking changes between versions, and occasional bugs. We ship fast and fix fast — check for updates regularly. Report issues on [GitHub](https://github.com/Fresh1289/meridian/issues) or [Discord](https://discord.gg/nvkEWVu5Wx).
 
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.3.2_Beta-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.3.4_Beta-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -683,7 +704,7 @@ open /Applications/Meridian.app
 **First launch walkthrough:**
 1. **Sign in** — GitHub OAuth or email/password
 2. **CLI check** — Meridian verifies Claude Code is installed and authenticated
-3. **Create a project** — name it, describe what you're building
+3. **Create a project** — name it, delaniakea what you're building
 4. **Start chatting** — Manager deploys agents and you're off
 
 ### Setup — Windows (x64)
@@ -748,7 +769,7 @@ No. Meridian works with the **Claude CLI** using your Max plan credits — no AP
 <summary><strong>How many agents can I run at once?</strong></summary>
 <br />
 
-Meridian has been stress-tested with **20 concurrent agents** in a full hierarchical setup (leads, sub-agents, scribe). In practice, most projects use 5-12 agents. Each agent is a real CLI process, so your limit is your machine's resources and API rate limits.
+Meridian has been stress-tested with **20 concurrent agents** in a full hierarchical setup (leads, sub-agents, laniakea). In practice, most projects use 5-12 agents. Each agent is a real CLI process, so your limit is your machine's resources and API rate limits.
 
 </details>
 
@@ -764,7 +785,7 @@ The source code is currently private. This repo is a showcase of what Meridian i
 <summary><strong>How is this different from just running multiple Claude Code sessions?</strong></summary>
 <br />
 
-When you run multiple Claude Code sessions yourself, **you** are the communication bus — reading output from one, pasting context into another, deciding who does what. Meridian replaces you in that role. Manager handles all inter-agent routing, Scribe maintains shared memory, and the topology gives you real-time visibility into what every agent is doing. You go from being the bottleneck to being the overseer.
+When you run multiple Claude Code sessions yourself, **you** are the communication bus — reading output from one, pasting context into another, deciding who does what. Meridian replaces you in that role. Manager handles all inter-agent routing, Laniakea maintains shared memory, and the topology gives you real-time visibility into what every agent is doing. You go from being the bottleneck to being the overseer.
 
 </details>
 
@@ -814,7 +835,7 @@ Meridian needs to spawn and manage CLI subprocesses (Claude Code, etc.) directly
 </p>
 
 <p align="center">
-  <code>680+ commits · 158 source files · 120+ IPC channels · 83 React components</code>
+  <code>720+ commits · 165+ source files · 130+ IPC channels · 85+ React components</code>
   <br />
   <code>11 SQLite tables · 14 end-to-end tests · 20-agent stress test cleared</code>
   <br /><br />
