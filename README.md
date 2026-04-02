@@ -37,7 +37,7 @@
 
 > ### What's New in v1.3.4 — Laniakea
 >
-> **Laniakea has been reborn as Laniakea** — an LLM-powered knowledge engine with total recall.
+> **Introducing Laniakea** — an LLM-powered knowledge engine with total recall.
 >
 > **Laniakea Intelligence:** LLM-powered CONSULT (synthesized answers with citations), predictive warnings (risk analysis from historical failures), contradiction detection (auto-flags conflicting decisions), decision journaling, conversational `/lk` chat interface, feedback loop (👍/👎 adjusts confidence), smart spawn briefing (agents get relevant lessons on start), cross-project knowledge transfer.
 >
