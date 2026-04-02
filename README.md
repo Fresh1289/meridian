@@ -11,7 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-v1.3.2-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <img src="https://img.shields.io/badge/⚠️_Beta-Active_Development-f59e0b?style=flat-square&labelColor=1a1a2e" />
+</p>
+
+<p align="center">
+  <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-v1.3.2_Beta-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="#-download--setup"><img src="https://img.shields.io/badge/Download-Windows-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
@@ -609,8 +613,10 @@ Multi-machine orchestration. Cluster your MacBook, Mac Mini, and build server in
 
 ## 📥 Download & Setup
 
+> **⚠️ Beta Software.** Meridian is under active development. Expect rough edges, breaking changes between versions, and occasional bugs. We ship fast and fix fast — check for updates regularly. Report issues on [GitHub](https://github.com/Fresh1289/meridian/issues) or [Discord](https://discord.gg/nvkEWVu5Wx).
+
 <p align="center">
-  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.3.2_DMG-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
+  <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Mac_(Apple_Silicon)-v1.3.2_Beta-7c3aed?style=for-the-badge&logo=apple&logoColor=white" /></a>
   &nbsp;
   <a href="https://github.com/Fresh1289/meridian/releases/latest"><img src="https://img.shields.io/badge/Windows_(x64)-Installer-7c3aed?style=for-the-badge&logo=windows&logoColor=white" /></a>
   &nbsp;
