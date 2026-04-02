@@ -37,7 +37,7 @@
 
 > ### What's New in v1.4.0 — Full Stack
 >
-> **Every feature area at 10/10.** Git workflow, Obsidian two-way sync, and Laniakea intelligence — all fully wired.
+> **Major integrations release.** Git workflow, Obsidian two-way sync, and Laniakea intelligence engine.
 >
 > **Git:** Commit history with inline diffs, branch switcher, auto-commit in agent worktrees, PR creation via `gh` CLI.
 >
