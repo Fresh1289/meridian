@@ -35,15 +35,19 @@
 
 <br />
 
-> ### What's New in v1.5.0 — Reliability & Flat Design
+> ### What's New in v1.5.0 — Reliability Hardening
 >
-> **Massive reliability sprint.** 11 rounds, 25 commits, 72 issues identified and fixed from dogfood sessions.
+> **Massive reliability sprint.** 9 rounds, 25 commits, 72 issues identified and fixed from real dogfood sessions.
 >
-> **Reliability:** Universal action logger (every action timestamped), auto-merge clean builds, auto-approve relays, hash-based loop detection with auto-restart, atomic relay processing, exclusive merge locks, graceful agent lifecycle, bounded resource management.
+> **Hands-off operation:** Auto-merge clean builds and auto-approve relays ON by default. No more manual clicking.
 >
-> **Flat Design:** GitHub-inspired aesthetic — glassmorphism killed, solid backgrounds, 1px borders, no shadows, muted agent colors, snappy 150ms transitions. The UI disappears so you see the work.
+> **Loop detection rewrite:** Hash-based detection replaces broken 100-char prefix check. Agents auto-restart on loop (max 2x, then halt). Manager spawn debounced.
 >
-> **Laniakea Mentat v2:** Batch intelligence engine replacing per-event regex. Decision-point advisory, outcome tracking, knowledge quality gates.
+> **Race condition fixes:** Atomic relay processing, exclusive merge locks, dead agent slot cleanup, graceful Manager kill.
+>
+> **Full telemetry:** Universal action logger — every action timestamped to JSONL. 27 integration points across all systems.
+>
+> **Resource management:** Bounded caches, timers, and maps. No more memory leaks over long sessions.
 
 <br />
 
@@ -104,10 +108,10 @@ Some tools claim to solve this with CLI wrappers, YAML configs, and buzzword arc
 - Branch switcher, commit history, PR creation via `gh` CLI
 
 ### 🌌 Laniakea — Institutional Memory
-- Batch intelligence engine — periodic LLM analysis, not per-event regex
+- Knowledge engine with cross-project recall
 - Decision-point advisory — consults before merges, spawns, and on errors
-- Cross-project knowledge transfer
 - Conversational `/lk` interface, feedback loop, Drive tab
+- Smart spawn briefing — agents get relevant context on creation
 
 ### 🛡️ Reliability
 - Universal action logger — every action timestamped to JSONL
